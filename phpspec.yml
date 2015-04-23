@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: webfutbol
+        psr4_prefix: webfutbol
+        src_path: app
