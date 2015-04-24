@@ -15,16 +15,16 @@ class CreatePartidosTable extends Migration {
 		Schema::create('partidos', function(Blueprint $table)
 		{
 			$table->increments('id');
-                        $table->string('rival',50);
-			$table->string('campo',50);
-                        $table->enum('local_visitante', ['local', 'visitante']);
-                        $table->date('fecha');
-                        $table->integer('jornada');
-                        $table->integer('goles_a_favor');
-                        $table->integer('goles_en_contra');
-                        $table->integer('tarjetas_amarillas');
-                        $table->integer('tarjetas_rojas');
-                        $table->string('dni',9)->unique();
+                        $table->string('rival',45);
+			$table->string('campo',45);
+                        $table->enum('estado', ['local', 'visitante']);
+                        $table->string('fecha',45);
+                        $table->string('jornada',45);
+                        $table->string('goles_a_favor',45);
+                        $table->string('goles_en_contra',45);
+                        $table->string('tarjetas_amarillas',45);
+                        $table->string('tarjetas_rojas',45);
+                        $table->string('dni',45)->unique();
                         $table->integer('categoria_id')->unsigned();
 			$table->timestamps();
                         //relacion con tablas

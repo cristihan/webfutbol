@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmpleadosTable extends Migration {
+class CreateEntrenamientosTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,10 @@ class CreateEmpleadosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('empleados', function(Blueprint $table)
+		Schema::create('entrenamientos', function(Blueprint $table)
 		{
 			$table->increments('id');
+                        $table->string('fecha',45);
 			$table->timestamps();
 		});
 	}
@@ -26,7 +27,7 @@ class CreateEmpleadosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('empleados');
+		Schema::drop('entrenamientos');
 	}
 
 }

@@ -14,19 +14,13 @@ class CreatePadresTable extends Migration {
 	{
 		Schema::create('padres', function(Blueprint $table)
 		{
-			$table->increments('id');
-                        $table->integer('jugador_id')->unsigned();
-                        $table->string('nombre',50);
-			$table->string('apellido_1',50);
-                        $table->string('apellido_2',50);
-                        $table->integer('telefono');
-			$table->string('email')->unique();
+			$table->increments('id');                        
+                        $table->string('nombre',45);
+			$table->string('apellidos',45);                       
+                        $table->string('telefono',45);
+			$table->string('email',45)->unique();
 			$table->timestamps();
-                        //relaciones de la tabla
-                        $table->foreign('jugador_id')
-				  ->references('id')
-				  ->on('jugadores')
-				  ->onDelete('cascade');
+                        
 		});
 	}
 
