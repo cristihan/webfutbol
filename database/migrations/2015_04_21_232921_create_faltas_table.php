@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePadresTable extends Migration {
+class CreateFaltasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,18 +12,16 @@ class CreatePadresTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('padres', function(Blueprint $table)
+		Schema::create('faltas', function(Blueprint $table)
 		{
 			$table->increments('id');
+                        $table->date('fecha');
+                        $table->enum('estado', ['justificado', 'no_justificado']);
+                        $table->enum('motivo', ['lesionado', 'enfermo','estudios','seleccion','vacaciones','sin_motivo']);
                         $table->integer('jugador_id')->unsigned();
-                        $table->string('nombre',50);
-			$table->string('apellido_1',50);
-                        $table->string('apellido_2',50);
-                        $table->integer('telefono');
-			$table->string('email')->unique();
 			$table->timestamps();
-                        //relaciones de la tabla
-                        $table->foreign('jugador_id')
+                         // Relaciones
+			$table->foreign('jugador_id')
 				  ->references('id')
 				  ->on('jugadores')
 				  ->onDelete('cascade');
@@ -37,7 +35,7 @@ class CreatePadresTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('padres');
+		Schema::drop('faltas');
 	}
 
 }

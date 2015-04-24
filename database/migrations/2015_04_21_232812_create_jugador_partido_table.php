@@ -14,10 +14,11 @@ class CreateJugadorPartidoTable extends Migration {
 	{
 		Schema::create('jugador_partido', function(Blueprint $table)
 		{
-			
+			$table->increments('id');
+                        $table->integer('jugador_id')->unsigned();
                         $table->integer('partido_id')->unsigned();
-                        $table->integer('jugador_id')->unsigned();                   
-                        $table->integer('titular');
+                        $table->tinyInteger('convocado',1);
+                        $table->tinyInteger('titular',1);
                         $table->integer('minutos_jugados');
                         $table->integer('goles_favor');
                         $table->integer('goles_contra');
