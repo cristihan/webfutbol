@@ -32,7 +32,6 @@ class CreatePartidosTable extends Migration {
                         ->references('id')
                         ->on('categorias')
                          ->onDelete('cascade');
-                        
 			$table->timestamps();
 		});
 	}

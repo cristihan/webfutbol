@@ -28,7 +28,7 @@ class CreateJugadoresTable extends Migration {
                         $table->integer('categoria_id')->unsigned();
                         $table->integer('padre_id')->unsigned();
                         
-                         //relaciones de la tabla
+                        //relaciones de la tabla
                         $table->foreign('categoria_id')
 				  ->references('id')
 				  ->on('categorias')
