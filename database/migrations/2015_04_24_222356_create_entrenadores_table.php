@@ -16,19 +16,21 @@ class CreateEntrenadoresTable extends Migration {
 		{
 			$table->increments('id');
                         $table->enum('cargo', ['primer_entrenador', 'segundo_entrenador']);
-                        $table->integer('categoria_id')->unsigned();
-			$table->integer('users_id')->unsigned();
-			$table->timestamps();
+                        $table->integer('user_id')->unsigned();
+			$table->integer('categoria_id')->unsigned();
+                        
                         //relaciones de la tabla
-                        $table->foreign('categoria_id')
+                        $table->foreign('user_id')
 				  ->references('id')
-				  ->on('categorias')
+				  ->on('users')
 				  ->onDelete('cascade');
 				  
-			$table->foreign('user_id')
+			$table->foreign('categoria_id')
 			      ->references('id')
-			      ->on('users')
+			      ->on('categorias')
 			      ->onDelete('cascade');
+                        
+			$table->timestamps();
 		});
 	}
 
