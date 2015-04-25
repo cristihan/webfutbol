@@ -11,5 +11,15 @@ class Categoria extends Model {
     public function entrenador() {
         return $this->hasMany('webfutbol\Entrenador');
     }
+    
+     public function partido() {
+        return $this->hasMany('webfutbol\Partido');
+    }
+    
+     public function jugador() {
+        return $this->hasMany('webfutbol\Jugador');
+    }
+    
+    
 
 }
