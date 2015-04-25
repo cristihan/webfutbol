@@ -14,9 +14,9 @@ class CreatePartidosTable extends Migration {
 	{
 		Schema::create('partidos', function(Blueprint $table)
 		{
-			$table->increments('id');
+			                  $table->increments('id');
                         $table->string('rival',45);
-			$table->string('campo',45);
+			                  $table->string('campo',45);
                         $table->enum('estado', ['local', 'visitante']);
                         $table->string('fecha',45);
                         $table->string('jornada',45);

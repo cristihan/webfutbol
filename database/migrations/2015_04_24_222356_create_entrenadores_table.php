@@ -14,10 +14,10 @@ class CreateEntrenadoresTable extends Migration {
 	{
 		Schema::create('entrenadores', function(Blueprint $table)
 		{
-			$table->increments('id');
+			                  $table->increments('id');
                         $table->enum('cargo', ['primer_entrenador', 'segundo_entrenador']);
                         $table->integer('user_id')->unsigned();
-			$table->integer('categoria_id')->unsigned();
+			                  $table->integer('categoria_id')->unsigned();
                         
                         //relaciones de la tabla
                         $table->foreign('user_id')
