@@ -32,12 +32,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $hidden = ['password', 'remember_token'];
         
         public function perfil() {
-            return $this->hasOne('webfutbol\Perfil');
+            return $this->hasOne('webfutbol\Perfil','user_id','id');
             
         }
         
         public function entrenador() {
-            return $this->hasOne('webfutbol\Entrenador');
+            return $this->hasOne('webfutbol\Entrenador','user_id','id');
             
         }
 

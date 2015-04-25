@@ -8,7 +8,7 @@ class Entrenamiento extends Model {
         
         public function jugadores()
     {
-        return $this->belongsToMany('Jugador');
+        return $this->belongsToMany('Jugador','id','jugadores_id');
     }
 
 }

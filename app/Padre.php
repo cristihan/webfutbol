@@ -7,7 +7,7 @@ class Padre extends Model {
 	protected $table = 'padres';
         
         public function jugador() {
-        return $this->hasMany('webfutbol\Jugador');
+        return $this->hasMany('webfutbol\Jugador','jugador_id','id');
     }
 
 }

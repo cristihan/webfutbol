@@ -12,7 +12,7 @@ class Entrenador extends Model {
         }
 
         public function categoria() {
-            return $this->belongsTo('webfutbol\Categoria');
+            return $this->belongsTo('webfutbol\Categoria','entrenador_id','id');
             
         }
 }

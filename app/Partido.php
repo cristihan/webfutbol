@@ -7,12 +7,12 @@ class Partido extends Model {
 	protected $table = 'partidos';
         
         public function categoria() {
-        return $this->belongsTo('webfutbol\Categoria');
+        return $this->belongsTo('webfutbol\Categoria','id','categorias_id');
     }
     
      public function jugadores()
     {
-        return $this->belongsToMany('Jugador');
+        return $this->belongsToMany('webfutbol\Jugador','id','jugadores_id');
     }
 
 
