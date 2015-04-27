@@ -18,8 +18,8 @@ class CreatePadresTable extends Migration {
                         $table->string('nombre',45);			
                         $table->string('apellidos',45);
                         $table->string('telefono',45);
-			                 $table->string('email',45)->unique();
-		                 	$table->timestamps();
+			$table->string('email',45)->unique();
+		        $table->timestamps();
 		});
 	}
 
