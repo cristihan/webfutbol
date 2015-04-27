@@ -15,7 +15,8 @@ class UsersController extends Controller {
 	 */
 	public function index()
 	{
-           $user = User::paginate();
+//          $users = User::paginate();
+            $users = User::select('id','name','email','type')->orderBy('name','ASC')->paginate(15);
                 
            return view ('users.index', compact('users')); 
 	}
@@ -27,7 +28,7 @@ class UsersController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		 return view ('users.create');
 	}
 
 	/**
