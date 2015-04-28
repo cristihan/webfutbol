@@ -81,7 +81,7 @@ class UsersController extends Controller {
 		$user = User::findOrFail($id);
                 $user->fill($request->all());
                 $user->save();
-                return redirect()->back();
+                return redirect()->route('users.index');
 	}
 
 	/**
