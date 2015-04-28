@@ -9,9 +9,9 @@
 
                 <div class="panel-body">
 
-                    {!!Form::open(['route' => 'users.store', 'method' => 'POST']) !!}
-                    @include('users.partials.fields')
-                    <button type="submit" class="btn btn-default">Crear Usuario</button>
+                    {!!Form::open(['route' => 'users.update', 'method' => 'PUT']) !!}
+                      @include('users.partials.fields')
+                    <button type="submit" class="btn btn-default">Actualizar Usuario</button>
                     {!!Form::close() !!}
 
                 </div>

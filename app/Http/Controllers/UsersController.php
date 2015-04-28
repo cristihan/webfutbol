@@ -4,7 +4,10 @@ use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 use webfutbol\User;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;//inyeccion de dependencias de request
+//use Illuminate\Support\Facades\Request;//facades de request
+use Illuminate\Support\Facades\Redirect;//facades de redirect
+use Illuminate\Routing\Redirect;//inyeccion de dependencias
 
 class UsersController extends Controller {
 
@@ -15,8 +18,8 @@ class UsersController extends Controller {
 	 */
 	public function index()
 	{
-//          $users = User::paginate();
-            $users = User::select('id','name','email','type')->orderBy('name','ASC')->paginate(15);
+          $users = User::paginate(30);
+//            $users = User::select('id','name','email','type')->orderBy('name','ASC')->paginate(15);
                 
            return view ('users.index', compact('users')); 
 	}
@@ -38,7 +41,10 @@ class UsersController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$user = User::create(Request::all());
+               
+                return Redirect()->route('users.index');
+                
 	}
 
 	/**
@@ -49,7 +55,8 @@ class UsersController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$user = User::findOrFail($id);
+                return view('users.index', compact('user'));
 	}
 
 	/**

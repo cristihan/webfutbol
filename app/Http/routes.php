@@ -15,7 +15,7 @@
 
 //Route::get('home', 'HomeController@index');
 
-Route::resource('users', 'UsersController@index');
+Route::resource('users', 'UsersController');
 
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',

@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['name', 'email', 'password'];
+	 protected $fillable = ['name', 'email', 'password', 'type'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -40,5 +40,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             return $this->hasOne('webfutbol\Entrenador','user_id','id');
             
         }
+        
+        public function setPasswordAttribute($value) { //este metodo nos sirve para proteger las contraseñas y guardarlas encriptada
+        //if (!empty($value)) {  si el password no esta vacio que lo encripte, caso contario no se modifique
+            $this->attributes['password'] = bcrypt($value);
+        }
+
+//           $this->attributes['password'] = \Has::make($value); existen 2 maneras de encriptar la contraseña
+  //  }
 
 }
