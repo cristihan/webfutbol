@@ -42,11 +42,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
         
         public function setPasswordAttribute($value) { //este metodo nos sirve para proteger las contraseñas y guardarlas encriptada
-        //if (!empty($value)) {  si el password no esta vacio que lo encripte, caso contario no se modifique
+        if (!empty($value)) { // si el password no esta vacio que lo encripte, caso contario no se modifique
             $this->attributes['password'] = bcrypt($value);
         }
 
 //           $this->attributes['password'] = \Has::make($value); existen 2 maneras de encriptar la contraseña
-  //  }
+    }
 
 }
