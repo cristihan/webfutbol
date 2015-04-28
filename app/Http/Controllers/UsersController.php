@@ -66,8 +66,8 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$user = User::findOrFail($id);
-                return view('users.index', compact('user'));
+		$user = User::findOrFail($id);//              
+                return view('users.edit', compact('user'));
 	}
 
 	/**
@@ -76,9 +76,12 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
-		//
+		$user = User::findOrFail($id);
+                $user->fill($request->all());
+                $user->save();
+                return redirect()->back();
 	}
 
 	/**
