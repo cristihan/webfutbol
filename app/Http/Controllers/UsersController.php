@@ -1,13 +1,13 @@
 <?php namespace webfutbol\Http\Controllers;
 
-use webfutbol\Http\Requests;
+//use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 use webfutbol\User;
 
 use Illuminate\Http\Request;//inyeccion de dependencias de request
 //use Illuminate\Support\Facades\Request;//facades de request
 use Illuminate\Support\Facades\Redirect;//facades de redirect
-use Illuminate\Routing\Redirect;//inyeccion de dependencias
+use Illuminate\Routing\Redirector;//inyeccion de dependencias
 
 class UsersController extends Controller {
 
@@ -39,9 +39,9 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		$user = User::create(Request::all());
+		$user = User::create($request->all());
                
                 return Redirect()->route('users.index');
                 
@@ -55,8 +55,7 @@ class UsersController extends Controller {
 	 */
 	public function show($id)
 	{
-		$user = User::findOrFail($id);
-                return view('users.index', compact('user'));
+		//
 	}
 
 	/**
@@ -67,7 +66,8 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$user = User::findOrFail($id);
+                return view('users.index', compact('user'));
 	}
 
 	/**
