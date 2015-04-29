@@ -55,7 +55,9 @@ class UsersController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$user = User::findOrFail($id);//              
+                return view('users.show', compact('user'));
+            
 	}
 
 	/**
@@ -92,7 +94,7 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$user = User::findOrFail($id);
 	}
 
 }
