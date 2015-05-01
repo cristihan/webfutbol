@@ -18,7 +18,8 @@
                  
                             <td>
                      <a href="{{route('users.edit', $user)}}">Editar</a>
-                                <a href="" class="btn-delete">Eliminar</a>
+                                <a href="" class="btn-delete">Eliminar</a>                             
+                    <a class="" href="{{route('users.show', $user)}}" role="button">mostrar Usuario</a>            
                             </td>
                         </tr>
                         @endforeach
