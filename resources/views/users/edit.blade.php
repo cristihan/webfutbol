@@ -12,10 +12,11 @@
                     {!!Form::model($user, ['route' => ['users.update', $user], 'method' => 'PUT']) !!}
                       @include('users.partials.fields')
                     <button type="submit" class="btn btn-default">Actualizar Usuario</button>
-                    {!!Form::close() !!}
-
+                    {!!Form::close() !!}                  
+                    
                 </div>
             </div>
+            @include('users.partials.delete')
         </div>
     </div>
 </div>

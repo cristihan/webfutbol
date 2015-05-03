@@ -3,8 +3,10 @@
 use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 use webfutbol\Categoria;
-use Illuminate\Http\Request;
-
+use webfutbol\Http\Requests\CreateCategoriaRequest;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Redirect;
 class CategoriasController extends Controller {
 
 	/**
@@ -26,7 +28,7 @@ class CategoriasController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('categorias.create');
 	}
 
 	/**
@@ -34,9 +36,11 @@ class CategoriasController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
-	{
-		//
+	public function store(CreateCategoriaRequest $request)
+	{             
+               
+		$categoria = Categoria::create(Request::all());
+                 return Redirect()->route('categorias.index');
 	}
 
 	/**
@@ -47,7 +51,9 @@ class CategoriasController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$categoria = Categoria::findOrFail($id);
+                //dd($categoria);
+                return view('categorias.show', compact('categoria'));
 	}
 
 	/**
@@ -58,7 +64,9 @@ class CategoriasController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+                $categoria = Categoria::findOrFail($id);
+                //dd($categoria);
+		return view('categorias.edit', compact('categoria'));
 	}
 
 	/**
@@ -69,7 +77,10 @@ class CategoriasController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$categoria = Categoria::findOrFail($id);
+                $categoria->fill(Request::all());
+                $categoria->save();
+                return redirect()->route('categorias.index');
 	}
 
 	/**

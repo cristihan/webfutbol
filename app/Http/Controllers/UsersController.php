@@ -3,7 +3,9 @@
 //use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 use webfutbol\User;
-
+use webfutbol\Http\Requests\CreateUserRequest;
+use webfutbol\Http\Requests\EditUserRequest;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;//inyeccion de dependencias de request
 //use Illuminate\Support\Facades\Request;//facades de request
 use Illuminate\Support\Facades\Redirect;//facades de redirect
@@ -39,10 +41,10 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
-	{
-		$user = User::create($request->all());
-               
+	public function store(CreateUserRequest $request)
+	{         
+           
+                $user = User::create($request->all());               
                 return Redirect()->route('users.index');
                 
 	}
@@ -78,7 +80,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request, $id)
+	public function update(EditUserRequest $request, $id)
 	{
 		$user = User::findOrFail($id);
                 $user->fill($request->all());
@@ -94,7 +96,14 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$user = User::findOrFail($id);
+//             dd("eliminando: ". $id);
+	User::destroy($id);
+        
+//       Session::flash('message', $message);
+       Session::flash('message', 'El registro fue eliminado');
+        
+        return redirect()->route('users.index');
+
 	}
 
 }
