@@ -10,7 +10,7 @@
 
                         </tr>
                         @foreach($users as $user)
-                        <tr>
+                        <tr data-id="{{$user->id}}">
                             <td>{{$user->id }}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
@@ -18,8 +18,8 @@
                  
                             <td>
                      <a href="{{route('users.edit', $user)}}">Editar</a>
-                                <a href="" class="btn-delete">Eliminar</a>                             
-                    <a class="" href="{{route('users.show', $user)}}" role="button">mostrar Usuario</a>            
+                     <a href="" class="btn-delete">Eliminar</a>                             
+                     <a class="" href="{{route('users.show', $user)}}" role="button">Mostrar</a>            
                             </td>
                         </tr>
                         @endforeach

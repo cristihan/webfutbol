@@ -4,6 +4,7 @@ use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 use webfutbol\Categoria;
 use webfutbol\Http\Requests\CreateCategoriaRequest;
+use Illuminate\Support\Facades\Session;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -91,7 +92,23 @@ class CategoriasController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+//             dd("eliminando: ". $id);
+	$categoria = Categoria::findOrFail($id);
+        
+        $categoria->delete();
+        
+        $message = $categoria->nombre . 'fue eliminado de nuestros registros';
+        
+        if ($request->ajax()){
+            return response()->json([
+                'id' => $this->categoria->id,
+                'message' =>  $message,
+            ]);
+          
+        }        
+       Session::flash('message', $message);     
+        
+        return redirect()->route('categorias.index');
 	}
 
 }

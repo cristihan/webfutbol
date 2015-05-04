@@ -12,8 +12,10 @@
                     @include('categorias.partials.fields')
                      <button type="submit" class="btn btn-default">Actualizar Categoria</button>
                   {!!Form::close() !!}
+                  
                 </div>
             </div>
+            @include('categorias.partials.delete')
         </div>
     </div>
 </div>

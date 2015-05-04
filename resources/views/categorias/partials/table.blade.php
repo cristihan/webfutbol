@@ -6,7 +6,7 @@
 
     </tr>
     @foreach($categorias as $categoria)
-    <tr>
+   <tr data-id="{{$categoria->id}}">
         <td>{{$categoria->id}}</td>
         <td>{{$categoria->nombre}}</td>
 
