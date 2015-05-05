@@ -97,9 +97,9 @@ class CategoriasController extends Controller {
         
         $categoria->delete();
         
-        $message = $categoria->nombre . 'fue eliminado de nuestros registros';
+        $message = $categoria->nombre . ' fue eliminado de nuestros registros';
         
-        if ($request->ajax()){
+        if (Request::ajax()){
             return response()->json([
                 'id' => $this->categoria->id,
                 'message' =>  $message,

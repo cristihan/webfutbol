@@ -16,7 +16,7 @@
                     
                 </div>
             </div>
-           
+          @include('padres.partials.delete')
         </div>
     </div>
 </div>

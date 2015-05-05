@@ -85,9 +85,27 @@ class PadresController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request, $id)
 	{
-		//
+		
+        $padre = Padre::findOrFail($id);
+        
+        $padre->delete();
+        
+        $message = $padre->nombre . 'fue eliminado de nuestros registros';
+        
+         if ($request->ajax()){
+            return response()->json([
+                'id' => $this->padre->id,
+                'message' =>  $message,
+            ]);
+          
+        }        
+
+       Session::flash('message', $message);
+        
+        return redirect()->route('padres.index');
+        
 	}
 
 }

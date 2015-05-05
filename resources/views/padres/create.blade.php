@@ -14,7 +14,7 @@
 
                     {!!Form::open(['route' => 'padres.store', 'method' => 'POST']) !!}
                     @include('padres.partials.fields')
-                    <button type="submit" class="btn btn-default">Crear Usuario</button>
+                    <button type="submit" class="btn btn-default">Crear Padre</button>
                     {!!Form::close() !!}
 
                 </div>
