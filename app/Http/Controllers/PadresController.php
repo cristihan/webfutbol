@@ -2,7 +2,7 @@
 
 use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
-
+use webfutbol\Padre;
 use Illuminate\Http\Request;
 
 class PadresController extends Controller {
@@ -14,7 +14,9 @@ class PadresController extends Controller {
 	 */
 	public function index()
 	{
-		//
+	  $padres = Padre::paginate(30);//          
+                
+          return view ('padres.index', compact('padres')); 
 	}
 
 	/**
@@ -24,7 +26,7 @@ class PadresController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		 return view ('padres.create');
 	}
 
 	/**

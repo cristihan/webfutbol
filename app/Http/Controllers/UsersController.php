@@ -3,6 +3,7 @@
 //use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 use webfutbol\User;
+use webfutbol\Perfil;
 use webfutbol\Http\Requests\CreateUserRequest;
 use webfutbol\Http\Requests\EditUserRequest;
 use Illuminate\Support\Facades\Session;
@@ -44,7 +45,9 @@ class UsersController extends Controller {
 	public function store(CreateUserRequest $request)
 	{         
            
-                $user = User::create($request->all());               
+                $user = User::create($request->all());
+                $perfil = new Perfil();
+                $user->perfil()->save($perfil);
                 return Redirect()->route('users.index');
                 
 	}
@@ -94,7 +97,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request,$id)
 	{
 //             dd("eliminando: ". $id);
 	$user = User::findOrFail($id);

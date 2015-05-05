@@ -16,7 +16,10 @@ Route::get('/', 'WelcomeController@index');
 //Route::get('home', 'HomeController@index');
 
 Route::resource('users', 'UsersController');
-Route::resource('categorias', 'categoriasController');
+Route::resource('categorias', 'CategoriasController');
+Route::resource('perfil', 'PerfilesController', ['only'=>['edit', 'update']]);
+Route::resource('padres', 'PadresController');
+Route::resource('entrenamientos', 'EntrenamientosController');
 
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
