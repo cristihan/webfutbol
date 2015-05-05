@@ -37,8 +37,8 @@ class PerfilesController extends Controller {
         
         $perfil->save();
 
-        return redirect()->back();
-//        return redirect()->route('users.show', $perfil->user);
+        //return redirect()->back();
+        return redirect()->route('users.show', $perfil->user);
 	}	
 
 }

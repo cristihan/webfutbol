@@ -17,7 +17,7 @@ class Perfil extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nombre', 'apellidos', 'telefono','email', 'direccion', 'cp','localidad'];
+	protected $fillable = ['nombre', 'apellidos', 'telefono', 'direccion', 'cp','localidad'];
         
         
         public function user() {

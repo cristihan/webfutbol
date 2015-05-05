@@ -17,8 +17,7 @@ class CreatePerfilesTable extends Migration {
 			$table->increments('id');
                         $table->string('nombre',45);			
                         $table->string('apellidos',45);
-                        $table->string('telefono',45);
-			$table->string('email',45)->unique();
+                        $table->string('telefono',45);			
                         $table->string('direccion',45);
                         $table->string('cp',45);
                         $table->string('localidad',45);

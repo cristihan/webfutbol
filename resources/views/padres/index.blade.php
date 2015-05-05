@@ -9,7 +9,7 @@
                  
 
                 <div class="panel-body">
-                    <a class="btn btn-info" href="{{route('users.create')}}" role="button">Nuevo Padre</a> 
+                    <a class="btn btn-info" href="{{route('padres.create')}}" role="button">Nuevo Padre</a> 
                     
                    <p>Hay {{ $padres->total()}} Padres</p>
 

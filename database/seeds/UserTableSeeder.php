@@ -10,8 +10,7 @@ class UserTableSeeder extends Seeder{
         $faker = Faker::create();
            for ($i=0; $i<10; $i ++){
               
-               \DB::table('users')->insert(array(
-           'name' => $faker->name,
+               \DB::table('users')->insert(array(          
             'email' => $faker->unique()->email,
             'password' => \Hash::make('123456'),
              'type' => 'entrenador'

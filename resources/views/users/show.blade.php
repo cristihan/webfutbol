@@ -23,7 +23,7 @@
                             <td>{{$user->email}}</td>
                             <td>{{$user->type}}</td>
                             
-                      </table>       
+                    </table>     
           <h2>Perfil</h2>
           
                    <a href="{{ route('perfil.edit', [$user->perfil]) }}">editar perfil</a>

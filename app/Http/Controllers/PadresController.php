@@ -26,6 +26,7 @@ class PadresController extends Controller {
 	 */
 	public function create()
 	{
+                 //dd('padres.create');  
 		 return view ('padres.create');
 	}
 
@@ -34,9 +35,10 @@ class PadresController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$padre = Padre::create($request->all());
+                 return Redirect()->route('padres.index');
 	}
 
 	/**
@@ -47,7 +49,8 @@ class PadresController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$padre = Padre::findOrFail($id);//              
+                return view('padres.show', compact('padre'));
 	}
 
 	/**
@@ -58,7 +61,8 @@ class PadresController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$padre = Padre::findOrFail($id);//              
+                return view('padres.edit', compact('padre'));
 	}
 
 	/**
@@ -67,9 +71,12 @@ class PadresController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
-		//
+		$padre = Padre::findOrFail($id);
+                $padre->fill($request->all());
+                $padre->save();
+                return redirect()->route('padres.index');
 	}
 
 	/**
