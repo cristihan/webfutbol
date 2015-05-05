@@ -4,6 +4,7 @@ use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 use webfutbol\Padre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PadresController extends Controller {
 
@@ -92,7 +93,7 @@ class PadresController extends Controller {
         
         $padre->delete();
         
-        $message = $padre->nombre . 'fue eliminado de nuestros registros';
+        $message = $padre->nombre . ' fue eliminado de nuestros registros';
         
          if ($request->ajax()){
             return response()->json([

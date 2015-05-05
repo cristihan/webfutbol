@@ -48,7 +48,34 @@
                             <td>{{$user->perfil->direccion}}</td>
                             <td>{{$user->perfil->cp}}</td>
                             <td>{{$user->perfil->localidad}}</td>
-                   </table>  
+                   </table> 
+                   
+                   @if($user->type == 'entrenador')
+                        <h2>Datos de entrenador</h2>
+                    
+                        @if($user->entrenador)
+                            <a href="{{ route('entrenador.edit', $user->entrenador) }}">
+                                Modificar datos de entrenador
+                            </a>
+
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Cargo</th>
+                                    <th>Categoria</th>
+                                </tr>
+                                <tr>
+                                    <td>{{ $user->entrenador->cargo }}</td>
+                                    <td>{{ $user->entrenador->categoria->nombre }}</td>
+                                </tr>
+                            </table>
+                        @else
+                            <a href="{{ route('entrenador.create', $user) }}">
+                                Agregar datos de entrenador
+                            </a>
+                        @endif
+                    @endif
+
+
                 
                 </div>
             </div>
