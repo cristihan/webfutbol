@@ -28,22 +28,21 @@ class EntrenadorController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
-	{
-            {
-        return view('entrenador.create', compact('user'))->with([
+	public function create($user)
+        {
+            
+            return view('entrenador.create', compact('user'))->with([
             'categorias' => $this->categorias,
             'cargos'     => $this->cargos,
-        ]);
-    }
-	}
+            ]);
+        }
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
             $entrenador = Entrenador::create($request->all());
             return redirect()->route('users.show', $entrenador->user_id);
@@ -59,7 +58,11 @@ class EntrenadorController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+            $entrenador = Entrenador::findOrFail($id);
+            return view('entrenador.edit', compact('entrenador'))->with([
+                'categorias' => $this->categorias,
+                'cargos'     => $this->cargos,
+            ]);
 	}
 
 	/**
@@ -68,10 +71,27 @@ class EntrenadorController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditUserRequest $request, $id)
 	{
-		//
-	}
+            $entrenador = Entrenador::findOrFail($id);
+            $entrenador->fill($request->all());
+            $entrenador->save();
+            return redirect()->route('users.show', $entrenador->user_id);
+        }   
+            
+//            public function update(EditUserRequest $request, $id)
+//    {
+//        $user = User::findOrFail($id);
+//        $user->fill($request->all());
+//        $user->save();
+//
+//        if ($user->type == 'administrador' AND $user->entrenador) {
+//            $user->entrenador->delete();
+//        }
+//
+//        return redirect()->route('users.index');
+//    }
+//	}
 
 	
 

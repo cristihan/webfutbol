@@ -12,7 +12,7 @@ class Entrenador extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['cargo'];
+	protected $fillable = ['cargo', 'user_id', 'categoria_id'];
         
         public function user() {
             return $this->belongsTo('webfutbol\User');
