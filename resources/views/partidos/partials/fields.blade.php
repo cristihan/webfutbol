@@ -5,12 +5,12 @@
 
 <div class="form-group">
     {!!Form::label('campo', 'Nombre De Campo') !!};
-    {!!Form::text('campo', null, ['class' => 'form-control', 'placeholder' => 'Introducir apellidos']) !!}
+    {!!Form::text('campo', null, ['class' => 'form-control', 'placeholder' => 'Introducir Campo']) !!}
 </div>
 
 <div class="form-group">
     {!!Form::label('estado', 'Visitante_Local') !!};
-    {!!Form::select('estado', ['' => 'Seleccione Estado', 'local' => 'Local', 'visitante' => 'Visitante'], null, ['class' => 'form-control'' => 'Introducir Estado']) !!} 
+    {!!Form::select('estado', ['' => 'Seleccione Estado', 'local' => 'Local', 'visitante' => 'Visitante'], null, ['class' => 'form-control']) !!} 
     
 </div>
 
@@ -45,6 +45,6 @@
 </div>
 
 <div class="form-group">
-    {!!Form::label('categoria_id', 'Categoria') !!};
-    {!!Form::text('categoria_id', null, ['class' => 'form-control', 'placeholder' => 'Introducir Categoria']) !!}
+    {!!Form::label('categoria_id', 'Categoria') !!}
+    {!!Form::select('categoria_id', $categorias, null, ['class' => 'form-control', 'placeholder' => 'Introducir categoria']) !!}
 </div>

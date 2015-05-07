@@ -2,11 +2,21 @@
 
 use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
+
 use webfutbol\Partido;
 use webfutbol\Categoria;
 use Illuminate\Http\Request;
 
 class PartidosController extends Controller {
+    
+    
+       private $categorias;
+       
+       
+       public function __construct()
+        {
+            $this->categorias = Categoria::lists('nombre', 'id');
+        }
 
 	/**
 	 * Display a listing of the resource.
@@ -27,7 +37,9 @@ class PartidosController extends Controller {
 	 */
 	public function create()
 	{
-             return view ('partidos.create');
+            return view('partidos.create', compact('partidos'))->with([
+             'categorias' => $this->categorias,           
+            ]);
 	}
 
 	/**
@@ -35,9 +47,10 @@ class PartidosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+             $partidos = Partido::create($request->all());
+             return redirect()->route('partidos.index', $partidos->categoria_id);
 	}
 
 	/**
@@ -59,7 +72,11 @@ class PartidosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+            $partidos = Partido::findOrFail($id);
+            return view('partidos.edit', compact('partidos'))->with([
+                'categorias' => $this->categorias,
+                
+            ]);
 	}
 
 	/**
