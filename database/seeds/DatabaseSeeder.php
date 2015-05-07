@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder {
                  $this->call('AdminTableSeeder');
                  $this->call('CategoriaTableSeeder');
                  $this->call('PadreTableSeeder');
+                 $this->call('PartidoTableSeeder');
 	}
 
 }

@@ -12,7 +12,7 @@ class Partido extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['rival', 'campo', 'estado','fecha', 'jornada', 'goles_a_favor','goles_en_contra','tarjetas_amarillas','tarjetas_rojas'];
+	protected $fillable = ['rival', 'campo', 'estado','fecha', 'jornada', 'goles_a_favor','goles_en_contra','tarjetas_amarillas','tarjetas_rojas','categoria_id'];
         
         
         public function categoria() {

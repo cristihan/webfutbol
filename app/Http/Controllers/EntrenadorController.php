@@ -6,6 +6,7 @@ use webfutbol\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use webfutbol\Categoria;
 use webfutbol\Entrenador;
+use webfutbol\Http\Requests\CreateEntrenadorRequest;
 
 class EntrenadorController extends Controller {
     
@@ -42,7 +43,7 @@ class EntrenadorController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(CreateEntrenadorRequest $request)
 	{
             $entrenador = Entrenador::create($request->all());
             return redirect()->route('users.show', $entrenador->user_id);
@@ -71,7 +72,7 @@ class EntrenadorController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(EditUserRequest $request, $id)
+	public function update(Request $request, $id)
 	{
             $entrenador = Entrenador::findOrFail($id);
             $entrenador->fill($request->all());

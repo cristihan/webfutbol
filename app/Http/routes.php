@@ -45,6 +45,8 @@ Route::group(['prefix' => 'entrenador/'], function () {
 
 });
 
+Route::resource('partidos', 'PartidosController');
+
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',

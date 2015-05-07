@@ -8,7 +8,8 @@
                     <div class="panel-heading">Nuevo Usuarios</div>
 
                     <div class="panel-body">                     
-
+                        
+                        @include('entrenador.partials.messages') 
 
                         {!!Form::open(['route' =>'entrenador.store', 'method' => 'POST']) !!}
                         {!! Form::hidden('user_id', $user) !!}
