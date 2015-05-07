@@ -17,6 +17,7 @@ class CreateJugadoresTable extends Migration {
 			$table->increments('id');
                         $table->string('nombre',45);			
                         $table->string('apellidos',45);
+                        $table->string('dni',9)->unique();
                         $table->string('fecha_nacimiento',45);
                         $table->string('telefono',45);
                         $table->string('email')->unique();

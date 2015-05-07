@@ -40,7 +40,7 @@
 </div>
 
 <div class="form-group">
-    {!!Form::label('tarjetas_rojas', 'Tarjetas Amarillas') !!};
+    {!!Form::label('tarjetas_rojas', 'Tarjetas Rojas') !!};
     {!!Form::text('tarjetas_rojas', null, ['class' => 'form-control', 'placeholder' => 'Introducir Tarjetas Rojas']) !!}
 </div>
 

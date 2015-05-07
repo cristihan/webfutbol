@@ -2,7 +2,7 @@
 
 use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Session;
 use webfutbol\Partido;
 use webfutbol\Categoria;
 use Illuminate\Http\Request;
@@ -37,7 +37,7 @@ class PartidosController extends Controller {
 	 */
 	public function create()
 	{
-            return view('partidos.create', compact('partidos'))->with([
+            return view('partidos.create', compact('partido'))->with([
              'categorias' => $this->categorias,           
             ]);
 	}
@@ -61,7 +61,11 @@ class PartidosController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		$partidos = Partido::findOrFail($id);//              
+                return view('partidos.show', compact('partidos'))->with([
+                'categorias' => $this->categorias,
+                
+            ]);
 	}
 
 	/**
@@ -72,9 +76,9 @@ class PartidosController extends Controller {
 	 */
 	public function edit($id)
 	{
-            $partidos = Partido::findOrFail($id);
-            return view('partidos.edit', compact('partidos'))->with([
-                'categorias' => $this->categorias,
+            $partido = Partido::findOrFail($id);
+            return view('partidos.edit', compact('partido'))->with([
+            'categorias' => $this->categorias,
                 
             ]);
 	}
@@ -85,9 +89,12 @@ class PartidosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
-		//
+            $partido = Partido::findOrFail($id);
+            $partido->fill($request->all());
+            $partido->save();
+            return redirect()->route('partidos.index', $partido->categoria_id);
 	}
 
 	/**
@@ -96,9 +103,28 @@ class PartidosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request, $id)
 	{
-		//
-	}
+	     $partido = User::findOrFail($id);
+        
+             $partido->delete();
+        
+             $message = $partido->rival . 'fue eliminado de nuestros registros';
+        
+               if ($request->ajax())
+               {
+                return response()->json([
+                'id' => $this->user->id,
+                'message' =>  $message,
+            ]);
+          
+               }        
 
+       Session::flash('message', $message);
+        
+        return redirect()->route('partidos.index');
+
+	}
 }
+
+

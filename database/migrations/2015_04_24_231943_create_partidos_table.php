@@ -23,8 +23,7 @@ class CreatePartidosTable extends Migration {
                         $table->string('goles_a_favor',45);
                         $table->string('goles_en_contra',45);
                         $table->string('tarjetas_amarillas',45);
-                        $table->string('tarjetas_rojas',45);
-                        $table->string('dni',9)->unique();
+                        $table->string('tarjetas_rojas',45);                        
                         $table->integer('categoria_id')->unsigned();
                         
                         //relacion con tablas

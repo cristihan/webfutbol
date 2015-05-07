@@ -10,13 +10,12 @@
                             <th>Goles_Favor</th>
                             <th>Goles_contra</th>
                             <th>Tarjetas Amarillas</th>
-                            <th>Tarjetas_rojas</th>
-                            <th>DNI</th>
+                            <th>Tarjetas_rojas</th>                           
                             <th>Categoria</th> 
 
                         </tr>
                         @foreach($partidos as $partido)
-                        <tr>
+                        <tr data-id="{{$partido->id}}">
                             <td>{{$partido->id }}</td>
                             <td>{{$partido->rival}}</td>
                             <td>{{$partido->campo}}</td>
@@ -30,9 +29,9 @@
                             <td>{{$partido->categoria_id}}</td>
                  
                             <td>
-                     <a href="">Editar</a>
+                     <a href="{{route('partidos.edit', $partido)}}">Editar</a>
                      <a href="" class="btn-delete">Eliminar</a>                             
-                     <a class="" href="" role="button">Mostrar</a>            
+                     <a class="" href="{{route('partidos.show', $partido)}}" role="button">Mostrar</a>            
                             </td>
                         </tr>
                         @endforeach
