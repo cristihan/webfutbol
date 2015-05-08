@@ -17,7 +17,7 @@
                     <h1>Listado de Partidos</h1><br>                    
                    
                     @include('partidos.partials.table')                    
-                    
+                      {!! $partidos->render() !!}
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@ class PartidosController extends Controller {
 	 */
 	public function index()
 	{
-            $partidos = Partido::all();
+            $partidos = Partido::paginate();
           //  dd($partidos);
             return view('partidos.index', compact('partidos'));
 	}
@@ -62,10 +62,7 @@ class PartidosController extends Controller {
 	public function show($id)
 	{
 		$partidos = Partido::findOrFail($id);//              
-                return view('partidos.show', compact('partidos'))->with([
-                'categorias' => $this->categorias,
-                
-            ]);
+                return view('partidos.show', compact('partidos'));
 	}
 
 	/**
@@ -94,7 +91,7 @@ class PartidosController extends Controller {
             $partido = Partido::findOrFail($id);
             $partido->fill($request->all());
             $partido->save();
-            return redirect()->route('partidos.index', $partido->categoria_id);
+            return redirect()->route('partidos.index');
 	}
 
 	/**
@@ -124,6 +121,21 @@ class PartidosController extends Controller {
         
         return redirect()->route('partidos.index');
 
+	}
+        
+        public function editEstadisticas($id)
+    {
+           $partido = Partido::findOrFail($id);
+           return view('partidos.edit.estadisticas', compact('partido'));
+    }
+    
+    
+    public function updateEstadisticas(Request $request, $id)
+	{
+            $partido = Partido::findOrFail($id);
+            $partido->fill($request->all());
+            $partido->save();
+            return redirect()->route('partidos.index');
 	}
 }
 

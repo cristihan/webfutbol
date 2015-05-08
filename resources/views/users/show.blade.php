@@ -50,6 +50,7 @@
                             <td>{{$user->perfil->localidad}}</td>
                    </table> 
                    
+                   
                    @if($user->type == 'entrenador')
                         <h2>Datos de entrenador</h2>
                     

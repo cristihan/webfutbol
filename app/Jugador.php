@@ -14,7 +14,7 @@ class Jugador extends Model {
 	protected $fillable = ['nombre', 'apellidos', 'fecha_nacimiento','telefono','email', 'direccion', 'cp','localidad','habilidad','posicion'];
         
         public function categoria() {
-        return $this->belongsTo('webfutbol\Categoria','categorias_id','id');
+        return $this->belongsTo('webfutbol\Categoria','categoria_id','id');
     }
     
      public function padre() {

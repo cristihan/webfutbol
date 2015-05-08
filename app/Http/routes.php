@@ -46,7 +46,14 @@ Route::group(['prefix' => 'entrenador/'], function () {
 });
 
 Route::resource('partidos', 'PartidosController');
-
+Route::get('partidos/edit/estadisticas', [
+    'as'   => 'partidos.edit.estadisticas',
+    'uses' => 'PartidoController@editEstadisticas',
+]);
+Route::put('partidos/edit/estadisticas', [
+    'as'   => 'partidos.update.estadisticas',
+    'uses' => 'PartidoController@updateEstadisticas',
+]);
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
