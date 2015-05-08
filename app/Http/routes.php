@@ -54,6 +54,8 @@ Route::put('partidos/edit/estadisticas', [
     'as'   => 'partidos.update.estadisticas',
     'uses' => 'PartidoController@updateEstadisticas',
 ]);
+
+Route::resource('jugadores', 'JugadoresController');
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',

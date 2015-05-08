@@ -35,7 +35,7 @@
                     
                     <h2>Editar Estadisticas</h2>
           
-                   <a href="{{ route('partidos.edit.estadisticas'}}">editar Estadisticas</a>
+                   <a href="{{ route('partidos.edit.estadisticas')}}">editar Estadisticas</a>
                    
                    <table class="table table-striped">
                         
