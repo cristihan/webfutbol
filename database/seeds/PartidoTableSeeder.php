@@ -9,7 +9,7 @@ class PartidoTableSeeder extends Seeder{
     {
         
         $faker = Faker::create();
-           for ($i=0; $i<50; $i ++)
+           for ($i=0; $i<10; $i ++)
            {              
      \DB::table('partidos')->insert(array(          
             'rival' => 'Barcelona',
@@ -20,8 +20,8 @@ class PartidoTableSeeder extends Seeder{
             'goles_a_favor' => $faker->randomDigit,      
             'goles_en_contra' => $faker->randomDigit, 
             'tarjetas_amarillas' => $faker->randomDigit,
-            'tarjetas_rojas' => $faker->randomDigit,
-            'dni' => '43345677D',       
+            'tarjetas_rojas' => $faker->randomDigit,           
+            'categoria_id' => 1,
                    
     ));
            }        

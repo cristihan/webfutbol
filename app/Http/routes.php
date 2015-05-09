@@ -46,7 +46,7 @@ Route::group(['prefix' => 'entrenador/'], function () {
 });
 
 Route::resource('partidos', 'PartidosController');
-Route::get('partidos/edit/estadisticas', [
+Route::get('partidos/edit/estadisticas/{partidos}', [
     'as'   => 'partidos.edit.estadisticas',
     'uses' => 'PartidosController@editEstadisticas',
 ]);
