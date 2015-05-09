@@ -126,7 +126,7 @@ class PartidosController extends Controller {
         public function editEstadisticas($id)
     {
            $partido = Partido::findOrFail($id);
-           return view('partidos.edit.estadisticas', compact('partido'));
+           return view('partidos.edit_estadisticas', compact('partido'));
     }
     
     

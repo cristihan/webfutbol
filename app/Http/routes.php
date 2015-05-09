@@ -50,9 +50,9 @@ Route::get('partidos/edit/estadisticas/{partidos}', [
     'as'   => 'partidos.edit.estadisticas',
     'uses' => 'PartidosController@editEstadisticas',
 ]);
-Route::put('partidos/edit/estadisticas', [
-    'as'   => 'partidos.update.estadisticas',
-    'uses' => 'PartidosController@updateEstadisticas',
+Route::put('partidos/edit/estadisticas/{partidos}', [
+   'as'   => 'partidos.update.estadisticas',
+   'uses' => 'PartidosController@updateEstadisticas',
 ]);
 
 Route::resource('jugadores', 'JugadoresController');
