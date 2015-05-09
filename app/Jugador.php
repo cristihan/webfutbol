@@ -11,14 +11,14 @@ class Jugador extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nombre', 'apellidos', 'fecha_nacimiento','telefono','email', 'direccion', 'cp','localidad','habilidad','posicion'];
+	protected $fillable = ['nombre', 'apellidos', 'dni','fecha_nacimiento','telefono','email', 'direccion', 'cp','localidad','habilidad','posicion','categoria_id','padre_id'];
         
         public function categoria() {
         return $this->belongsTo('webfutbol\Categoria','categoria_id','id');
     }
     
      public function padre() {
-        return $this->belongsTo('webfutbol\Padre','padres_id','id');
+        return $this->belongsTo('webfutbol\Padre','padre_id','id');
     }
     
     public function partidos()

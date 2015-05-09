@@ -48,11 +48,11 @@ Route::group(['prefix' => 'entrenador/'], function () {
 Route::resource('partidos', 'PartidosController');
 Route::get('partidos/edit/estadisticas', [
     'as'   => 'partidos.edit.estadisticas',
-    'uses' => 'PartidoController@editEstadisticas',
+    'uses' => 'PartidosController@editEstadisticas',
 ]);
 Route::put('partidos/edit/estadisticas', [
     'as'   => 'partidos.update.estadisticas',
-    'uses' => 'PartidoController@updateEstadisticas',
+    'uses' => 'PartidosController@updateEstadisticas',
 ]);
 
 Route::resource('jugadores', 'JugadoresController');

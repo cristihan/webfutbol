@@ -10,8 +10,7 @@
 
 <div class="form-group">
     {!!Form::label('estado', 'Visitante_Local') !!};
-    {!!Form::select('estado', ['' => 'Seleccione Estado', 'local' => 'Local', 'visitante' => 'Visitante'], null, ['class' => 'form-control']) !!} 
-    
+    {!!Form::select('estado', ['' => 'Seleccione Estado', 'local' => 'Local', 'visitante' => 'Visitante'], null, ['class' => 'form-control']) !!}     
 </div>
 
 <div class="form-group">

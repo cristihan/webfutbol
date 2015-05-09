@@ -2,10 +2,38 @@
 
 use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
-
+use webfutbol\Jugador;
+use webfutbol\Padre;
+use webfutbol\Categoria;
 use Illuminate\Http\Request;
 
 class JugadoresController extends Controller {
+    
+    
+     private $categorias;
+     private $padres;
+     
+     private $habilidades = [
+            'diestro'  => 'Diestro',
+            'zurdo' => 'Zurdo',
+            'ambidiestro' => 'Ambidiestro',
+         ];
+     
+     private $posiciones = [
+            'portero'  => 'Portero',
+            'central' => 'Central',
+            'lateral'  => 'Lateral',
+            'mediocentro' => 'Mediocentro',
+            'extremo' => 'extremo',
+            'delantero' => 'Delantero',
+         ];
+        
+
+        public function __construct()
+        {
+             $this->categorias = Categoria::lists('nombre', 'id');
+             $this->padres = Padre::lists('nombre', 'apellidos' ,'telefono', 'email','id');
+        }
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +42,9 @@ class JugadoresController extends Controller {
 	 */
 	public function index()
 	{
-		//
+            $jugadores = Jugador::paginate();
+           // dd($jugadores);
+            return view('jugadores.index', compact('jugadores'));
 	}
 
 	/**
@@ -24,7 +54,12 @@ class JugadoresController extends Controller {
 	 */
 	public function create()
 	{
-		//
+             return view('jugadores.create', compact('jugador'))->with([
+              'categorias' => $this->categorias,
+              'padres'     => $this->padres,
+              'habilidades' => $this->habilidades,
+              'posiciones'     => $this->posiciones,
+            ]);
 	}
 
 	/**
@@ -32,9 +67,10 @@ class JugadoresController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+            $jugadores = Jugador::create($request->all());
+            return redirect()->route('jugadores.index');
 	}
 
 	/**
