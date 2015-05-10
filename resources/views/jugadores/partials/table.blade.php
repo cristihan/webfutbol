@@ -9,9 +9,8 @@
                             <th>Telefono</th>
                             <th>Email</th>
                             <th>Direccion</th>
-                            <th>CP</th>
-                            <th>Localidad</th>
-                            <th>CP</th>  
+                           <th>CP</th>   
+                            <th>Localidad</th>                          
                             <th>Habilidad</th> 
                             <th>Posicion</th>
                             <th>Categoria</th> 
@@ -32,13 +31,13 @@
                             <td>{{$jugador->localidad}}</td>
                             <td>{{$jugador->habilidad}}</td> 
                             <td>{{$jugador->posicion}}</td> 
-                            <td>{{$jugador->categoria_id->nombre}}</td>
-                            <td>{{$jugador->padre_id->nombre}}</td>
+                            <td>{{$jugador->categoria_id}}</td>
+                            <td>{{$jugador->padre_id}}</td>
                  
                             <td>
-                     <a href="{{route('jugadors.edit', $jugador)}}">Editar</a>
+                     <a href="">Editar</a>
                      <a href="" class="btn-delete">Eliminar</a>                             
-                     <a class="" href="{{route('jugadors.show', $jugador)}}" role="button">Mostrar</a>            
+                     <a class="" href="" role="button">Mostrar</a>            
                             </td>
                         </tr>
                         @endforeach

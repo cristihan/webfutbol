@@ -32,7 +32,7 @@ class JugadoresController extends Controller {
         public function __construct()
         {
              $this->categorias = Categoria::lists('nombre', 'id');
-             $this->padres = Padre::lists('nombre', 'apellidos' ,'telefono', 'email','id');
+             $this->padres = Padre::lists('nombre', 'id');
         }
 
 	/**
@@ -43,7 +43,7 @@ class JugadoresController extends Controller {
 	public function index()
 	{
             $jugadores = Jugador::paginate();
-           // dd($jugadores);
+            //dd($jugadores);
             return view('jugadores.index', compact('jugadores'));
 	}
 
@@ -70,6 +70,7 @@ class JugadoresController extends Controller {
 	public function store(Request $request)
 	{
             $jugadores = Jugador::create($request->all());
+            //dd($request->all());
             return redirect()->route('jugadores.index');
 	}
 
