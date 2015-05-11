@@ -82,7 +82,10 @@ class JugadoresController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+            
+            $jugador = Jugador::findOrFail($id);//              
+            return view('jugadores.show', compact('jugador'));            
+            
 	}
 
 	/**
@@ -93,7 +96,11 @@ class JugadoresController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+            $jugador = Jugador::findOrFail($id);
+            return view('jugadores.edit', compact('jugador'))->with([
+                'categorias' => $this->categorias,
+                'padres'     => $this->padres,
+            ]);
 	}
 
 	/**
@@ -104,7 +111,10 @@ class JugadoresController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+            $jugador = Jugador::findOrFail($id);
+            $jugador->fill($request->all());
+            $jugador->save();
+            return redirect()->route('partidos.index');
 	}
 
 	/**
