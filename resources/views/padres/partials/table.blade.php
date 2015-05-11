@@ -11,7 +11,7 @@
 
                         </tr>
                         @foreach($padres as $padre)
-                        
+                         <tr data-id="{{$padre->id}}">
                             <td>{{$padre->id }}</td>
                             <td>{{$padre->nombre}}</td>
                             <td>{{$padre->apellidos}}</td>

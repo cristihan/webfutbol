@@ -1,17 +1,20 @@
 <?php
 use Illuminate\Database\Seeder;
-
+use Faker\Factory as Faker;
 
 class PadreTableSeeder extends Seeder{
     
     public function run(){
         
-        
-             \DB::table('padres')->insert(array(           
-            'nombre' => 'Juan',
-            'apellidos' => 'Valdiviezo Pinargote',
-            'telefono' => '675832728',
-             'email' => 'pinargote@hotmail.com'     
-             ));                 
+        $faker = Faker::create();
+
+        for ($i = 1; $i <= 16; $i++) {
+            \DB::table('padres')->insert(array(
+                'nombre' => $faker->name,
+                'apellidos' => $faker->lastName,
+                'telefono' => $faker->phoneNumber,
+                'email' => $faker->email
+            ));
+        }
     }
 }
