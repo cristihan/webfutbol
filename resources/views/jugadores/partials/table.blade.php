@@ -15,7 +15,7 @@
 
                         </tr>
                         @foreach($jugadores as $jugador)
-                        <tr>
+                        <tr data-id="{{$jugador->id}}">
                             <td>{{$jugador->id}}</td>
                             <td>{{$jugador->nombre }}</td>
                             <td>{{$jugador->apellidos}}</td>

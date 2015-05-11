@@ -100,6 +100,8 @@ class JugadoresController extends Controller {
             return view('jugadores.edit', compact('jugador'))->with([
                 'categorias' => $this->categorias,
                 'padres'     => $this->padres,
+                'habilidades' => $this->habilidades,
+                'posiciones'     => $this->posiciones,
             ]);
 	}
 
@@ -109,7 +111,7 @@ class JugadoresController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request,$id)
 	{
             $jugador = Jugador::findOrFail($id);
             $jugador->fill($request->all());
@@ -123,9 +125,27 @@ class JugadoresController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request, $id)
 	{
-		//
+            
+             $jugador = Jugador::findOrFail($id);
+        
+             $jugador->delete();
+        
+             $message = $jugador->nombre . ' fue eliminado de nuestros registros';
+        
+               if ($request->ajax())
+               {
+                return response()->json([
+                'id' => $this->jugador->id,
+                'message' =>  $message,
+            ]);
+          
+               }        
+
+       Session::flash('message', $message);
+        
+        return redirect()->route('jugadores.index');
 	}
 
 }

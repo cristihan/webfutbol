@@ -16,7 +16,8 @@
                         {!!Form::close() !!}
 
                     </div>
-                </div>              
+                </div>
+                 @include('jugadores.partials.delete')
             </div>
         </div>
     </div>
