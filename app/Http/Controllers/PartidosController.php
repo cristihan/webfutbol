@@ -5,6 +5,7 @@ use webfutbol\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use webfutbol\Partido;
 use webfutbol\Categoria;
+use webfutbol\JugadorPartido;
 use Illuminate\Http\Request;
 
 class PartidosController extends Controller {

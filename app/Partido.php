@@ -21,8 +21,15 @@ class Partido extends Model {
     
      public function jugadores()
     {
-        return $this->belongsToMany('webfutbol\Jugador','partido_jugador','partido_id','jugador_id');
+        return $this->belongsToMany('webfutbol\Jugador','jugador_partido','partido_id','jugador_id');
         
+    }
+    
+    public function convocado($id)
+    {
+        //dd($id);
+        $jugador = $this->jugadores()->find($id);
+        return !is_null($jugador);
     }
 
 

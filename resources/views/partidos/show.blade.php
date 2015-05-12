@@ -52,6 +52,9 @@
                             <td>{{$partidos->tarjetas_amarillas}}</td>
                             <td>{{$partidos->tarjetas_rojas}}</td>
                    </table> 
+                   
+                   <h2>Convocados</h2>
+                   <a href="{{ route('partidos.convocar', $partidos) }}">Editar convocatoria de jugadores</a>
                     
                 </div>
             </div>
