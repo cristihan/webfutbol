@@ -56,6 +56,24 @@
                    <h2>Convocados</h2>
                    <a href="{{ route('partidos.convocar', $partidos) }}">Editar convocatoria de jugadores</a>
                     
+                   <table class="table table-striped">
+                        <tr>
+                            <th>dni</th>
+                            <th>Nombre</th>
+                            <th>Habilidad</th>
+                            <th>Posicion</th>
+                            <th>Categoria</th>
+                        </tr>
+                        @foreach($partidos->jugadores as $jugador)
+                            <tr>
+                                <td>{{ $jugador->dni }}</td>
+                                <td>{{ $jugador->nombre }} {{ $jugador->apellidos }}</td>
+                                <td>{{ $jugador->habilidad }}</td>
+                                <td>{{ $jugador->posicion }}</td>
+                                <td>{{ $jugador->categoria->nombre }}</td>
+                            </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>

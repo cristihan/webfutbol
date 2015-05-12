@@ -73,7 +73,7 @@
                         {!! Form::close() !!}
                     </div>
                 </div>
-                <a href="{{ route('partidos.show', $partido)}}">Volver</a>
+                
             </div>
         </div>
     </div>

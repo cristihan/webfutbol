@@ -33,12 +33,12 @@ class JugadorPartidoController extends Controller {
 	 */
 	public function update(Request $request,$id)
 	{
-            $partido = Partido::findOrFail($id);
-            $jugadores = $request->get('jugador_id');
+             $partido = Partido::findOrFail($id);
+             $jugadores = $request->get('jugador_id');
+        
+             $partido->jugadores()->sync($jugadores);
 
-            $partido->jugadores()->attach($jugadores);
-
-            return redirect()->back()->with('message', 'Cambios guardados');
+                return redirect()->back()->with('message', 'Cambios guardados');
 	}
 
 	

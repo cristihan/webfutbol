@@ -27,7 +27,7 @@ class Partido extends Model {
     
     public function convocado($id)
     {
-        //dd($id);
+//        dd($id);
         $jugador = $this->jugadores()->find($id);
         return !is_null($jugador);
     }
