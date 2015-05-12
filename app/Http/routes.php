@@ -66,6 +66,8 @@ Route::post('partidos/{partidos}/convocar', [
     'as'    => 'partidos.convocar.update',
     'uses'  => 'JugadorPartidoController@update'
 ]);
+
+
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',

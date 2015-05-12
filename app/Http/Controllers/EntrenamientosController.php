@@ -2,8 +2,10 @@
 
 use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use webfutbol\Entrenamiento;
+
 
 class EntrenamientosController extends Controller {
 
@@ -14,7 +16,9 @@ class EntrenamientosController extends Controller {
 	 */
 	public function index()
 	{
-		//
+            $entrenamientos = Entrenamiento::paginate();
+//                dd($entrenamientos);
+                return view('entrenamientos.index', compact('entrenamientos'));
 	}
 
 	/**
@@ -24,7 +28,7 @@ class EntrenamientosController extends Controller {
 	 */
 	public function create()
 	{
-		//
+            return view('entrenamientos.create');
 	}
 
 	/**
@@ -32,9 +36,10 @@ class EntrenamientosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+            $entrenamiento = Entrenamiento::create($request->all());
+                 return Redirect()->route('entrenamientos.index');
 	}
 
 	/**
@@ -45,7 +50,9 @@ class EntrenamientosController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+            $entrenamiento = Entrenamiento::findOrFail($id);
+                //dd($entrenamiento);
+                return view('entrenamientos.show', compact('entrenamiento'));
 	}
 
 	/**
@@ -56,7 +63,8 @@ class EntrenamientosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+            $entrenamiento = Entrenamiento::findOrFail($id);//              
+               return view('entrenamientos.edit', compact('entrenamiento'));
 	}
 
 	/**
@@ -65,9 +73,12 @@ class EntrenamientosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Request $request, $id)
 	{
-		//
+                $entrenamiento = Entrenamiento::findOrFail($id);
+                $entrenamiento->fill($request->all());
+                $entrenamiento->save();
+                return redirect()->route('entrenamientos.index');
 	}
 
 	/**
@@ -76,9 +87,25 @@ class EntrenamientosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Request $request, $id)
 	{
-		//
+            $entrenamiento = Entrenamiento::findOrFail($id);
+        
+            $entrenamiento->delete();
+        
+            $message = $entrenamiento->fecha . ' fue eliminado de nuestros registros';
+        
+            if ($request->ajax()){
+            return response()->json([
+                'id' => $this->entrenamiento->id,
+                'message' =>  $message,
+            ]);
+          
+        }        
+
+            Session::flash('message', $message);
+        
+            return redirect()->route('entrenamientos.index');
 	}
 
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
+
 class CategoriasController extends Controller {
 
 	/**

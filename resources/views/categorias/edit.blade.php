@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Nueva Categorias</div>
+                <div class="panel-heading">Editar Categorias</div>
 
                 <div class="panel-body">
                   {!!Form::model($categoria,['route' => ['categorias.update', $categoria], 'method' => 'PUT']) !!}
