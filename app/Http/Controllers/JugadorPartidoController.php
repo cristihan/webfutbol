@@ -31,16 +31,25 @@ class JugadorPartidoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(Request $request,$id)
-	{
-             $partido = Partido::findOrFail($id);
-             $jugadores = $request->get('jugador_id');
-        
-             $partido->jugadores()->sync($jugadores);
+	public function update(Request $request, $id)
+        {
+        $partido   = Partido::findOrFail($id);
+        $jugadores = $request->get('jugador_id');
+        $titulares = $request->get('titular');
+        $data      = [];
 
-                return redirect()->back()->with('message', 'Cambios guardados');
-	}
+        if (is_array($jugadores) AND is_array($titulares)) {
+            foreach ($jugadores as $key => $id) {
+                $value = in_array($id, $titulares) ? 1 : 0;
+                $data[$id] = ['titular' => $value];
+            }
+        } elseif (!is_null($jugadores)) {
+            $data = $jugadores;
+        }
 
-	
+        $partido->jugadores()->sync($data);
+
+        return redirect()->back()->with('message', 'Cambios guardados');
+        }
 
 }

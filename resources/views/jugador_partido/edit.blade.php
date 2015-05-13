@@ -13,28 +13,6 @@
                             Volver
                         </a>
 
-                        <table class="table table-striped">
-                            <tr>
-                                <th>#</th>
-                                <th>Rival</th>
-                                <th>Campo</th>
-                                <th>Estado</th>
-                                <th>Fecha</th>
-                                <th>Jornada</th>
-                                <th>Categoria</th>
-                            </tr>
-                            <tr>
-                                <td>{{$partido->id }}</td>
-                                <td>{{$partido->rival}}</td>
-                                <td>{{$partido->campo}}</td>
-                                <td>{{$partido->estado}}</td>
-                                <td>{{$partido->fecha}}</td>
-                                <td>{{$partido->jornada}}</td>
-                                <td>{{$partido->categoria->nombre}}</td>
-                            </tr>
-
-                        </table>
-
                         <h2>
                             Jugadores
                         </h2>
@@ -50,6 +28,7 @@
                         <table class="table table-striped">
                             <tr>
                                 <th>Convocar</th>
+                                <th>Titular</th>
                                 <th>dni</th>
                                 <th>Nombre</th>
                                 <th>Habilidad</th>
@@ -59,6 +38,7 @@
                             @foreach($jugadores as $jugador)
                                 <tr>
                                     <td>{!! Form::checkbox('jugador_id[]', $jugador->id, $partido->convocado($jugador->id)) !!}</td>
+                                    <td>{!! Form::checkbox('titular[]', $jugador->id, $partido->titular($jugador->id)) !!}</td>
                                     <td>{{ $jugador->dni }}</td>
                                     <td>{{ $jugador->nombre }} {{ $jugador->apellidos }}</td>
                                     <td>{{ $jugador->habilidad }}</td>
@@ -73,7 +53,6 @@
                         {!! Form::close() !!}
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>

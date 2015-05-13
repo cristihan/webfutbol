@@ -58,6 +58,7 @@
                     
                    <table class="table table-striped">
                         <tr>
+                            <th>Titular</th>
                             <th>dni</th>
                             <th>Nombre</th>
                             <th>Habilidad</th>
@@ -66,6 +67,13 @@
                         </tr>
                         @foreach($partidos->jugadores as $jugador)
                             <tr>
+                                <td>
+                                    @if ($jugador->pivot->titular)
+                                    si
+                                    @else
+                                    no
+                                    @endif
+                                </td>
                                 <td>{{ $jugador->dni }}</td>
                                 <td>{{ $jugador->nombre }} {{ $jugador->apellidos }}</td>
                                 <td>{{ $jugador->habilidad }}</td>
