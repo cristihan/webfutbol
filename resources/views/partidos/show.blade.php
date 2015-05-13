@@ -6,9 +6,10 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Mostrar Datos del Partido</div>               
-
-                <div class="panel-body">                  
-
+                  
+                <div class="panel-body">                
+                                        
+                     
                     <table class="table table-striped">
 
                         <tr>
@@ -79,6 +80,28 @@
                                 <td>{{ $jugador->habilidad }}</td>
                                 <td>{{ $jugador->posicion }}</td>
                                 <td>{{ $jugador->categoria->nombre }}</td>
+                            </tr>
+                        @endforeach
+                    </table>
+                   
+                   <h2>Estadisticas</h2>
+                   <a href="{{ route('partidos.estadisticas', $partidos) }}">Editar Estadisticas de jugadores</a>
+                    
+                   <table class="table table-striped">
+                        <tr>                            
+                            <th>Minutos Jugados</th>
+                            <th>Goles A Favor</th>
+                            <th>Autogol</th>
+                            <th>Tarjetas Amarillas</th>
+                            <th>Tarjetas Rojas</th>
+                        </tr>
+                        @foreach($partidos->jugadores as $jugador)
+                            <tr>                                                               
+                                <td>{{ $jugador->minutos }}</td>
+                                <td>{{ $jugador->goles_favor }}</td>
+                                <td>{{ $jugador->goles_contra }}</td>
+                                <td>{{ $jugador->tarjetas_amarillas }}</td>
+                                <td>{{ $jugador->tarjetas_rojas}}</td>
                             </tr>
                         @endforeach
                     </table>

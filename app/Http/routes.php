@@ -67,7 +67,16 @@ Route::post('partidos/{partidos}/convocar', [
     'uses'  => 'JugadorPartidoController@update'
 ]);
 
+Route::get('partidos/{partidos}/estadisticas', [
+    'as'    => 'partidos.estadisticas',
+    'uses'  => 'JugadorPartidoController@edit'
+]);
 
+Route::post('partidos/{partidos}/estadisticas', [
+    'as'    => 'partidos.estadisticas.update',
+    'uses'  => 'JugadorPartidoController@update'
+
+]);
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',

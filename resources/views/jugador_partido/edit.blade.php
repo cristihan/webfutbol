@@ -9,10 +9,30 @@
 
                     <div class="panel-body">
 
-                        <a href="{{ route('partidos.show', $partido)}}">
-                            Volver
-                        </a>
+                        <a href="{{ route('partidos.show', $partido)}}">Volver</a>                        
+                        
+                          <table class="table table-striped">
+                            <tr>
+                                <th>#</th>
+                                <th>Rival</th>
+                                <th>Campo</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Jornada</th>
+                                <th>Categoria</th>
+                            </tr>
+                            <tr>
+                                <td>{{$partido->id }}</td>
+                                <td>{{$partido->rival}}</td>
+                                <td>{{$partido->campo}}</td>
+                                <td>{{$partido->estado}}</td>
+                                <td>{{$partido->fecha}}</td>
+                                <td>{{$partido->jornada}}</td>
+                                <td>{{$partido->categoria->nombre}}</td>
+                            </tr>
 
+                        </table>
+                        
                         <h2>
                             Jugadores
                         </h2>

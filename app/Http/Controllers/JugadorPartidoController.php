@@ -51,5 +51,27 @@ class JugadorPartidoController extends Controller {
 
         return redirect()->back()->with('message', 'Cambios guardados');
         }
+        
+        
+        public function editJugadores($id)
+	{
+            $partido = Partido::findOrFail($id);
+            $jugadores = Jugador::all();
+
+                return view('jugador_partido.edit_jugadores', compact('partido', 'jugadores'));
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function updateJugadores(Request $request, $id)
+        {
+        
+
+        return redirect()->back()->with('message', 'Cambios guardados');
+        }
 
 }
