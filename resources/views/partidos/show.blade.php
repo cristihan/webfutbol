@@ -7,9 +7,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Mostrar Datos del Partido</div>               
                   
-                <div class="panel-body">                
-                                        
-                     
+                <div class="panel-body">               
+            {!! link_to_route('partidos.index', 'Regresar al Index', "", array('class' => 'btn btn-danger')) !!}                                             
                     <table class="table table-striped">
 
                         <tr>
@@ -89,6 +88,7 @@
                     
                    <table class="table table-striped">
                         <tr> 
+                            <th>Dni</th>
                             <th>Nombre</th>
                             <th>Minutos Jugados</th>
                             <th>Goles A Favor</th>
@@ -98,6 +98,7 @@
                         </tr>
                         @foreach($partidos->jugadores as $jugador)
                             <tr> 
+                                <td>{{ $jugador->dni }} </td>
                                 <td>{{ $jugador->nombre }} {{ $jugador->apellidos }}</td>
                                 <td>{{ $jugador->pivot->minutos }}</td>
                                 <td>{{ $jugador->pivot->goles_favor }}</td>
@@ -109,6 +110,7 @@
                     </table>
                 </div>
             </div>
+            {!! link_to_route('partidos.index', 'Regresar al Index', "", array('class' => 'btn btn-danger')) !!}
         </div>
     </div>
 </div>
