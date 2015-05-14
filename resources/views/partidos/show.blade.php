@@ -85,7 +85,7 @@
                     </table>
                    
                    <h2>Estadisticas De Jugadores</h2>
-                   <a href="{{ route('partidos.estadisticas', $partidos) }}">Editar Estadisticas de jugadores</a>
+                   <a href="{{ route('partidos.jugadores.estadisticas', $partidos) }}">Editar Estadisticas de jugadores</a>
                     
                    <table class="table table-striped">
                         <tr> 

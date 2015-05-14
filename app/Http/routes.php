@@ -67,15 +67,14 @@ Route::post('partidos/{partidos}/convocar', [
     'uses'  => 'JugadorPartidoController@update'
 ]);
 
-Route::get('partidos/{partidos}/estadisticas', [
-    'as'    => 'partidos.estadisticas',
-    'uses'  => 'JugadorPartidoController@edit'
+Route::get('partidos/jugadores/{partidos}/estadisticas', [
+    'as'    => 'partidos.jugadores.estadisticas',
+    'uses'  => 'JugadorPartidoController@editEstadisticasJugadores'
 ]);
 
-Route::post('partidos/{partidos}/estadisticas', [
-    'as'    => 'partidos.estadisticas.update',
-    'uses'  => 'JugadorPartidoController@update'
-
+Route::post('partidos/jugadores/{partidos}/estadisticas', [
+    'as'    => 'partidos.jugadores.estadisticas.update',
+    'uses'  => 'JugadorPartidoController@updateEstadisticasJugadores'
 ]);
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',

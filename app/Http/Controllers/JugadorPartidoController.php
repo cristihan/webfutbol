@@ -53,13 +53,11 @@ class JugadorPartidoController extends Controller {
         }
         
         
-        public function editJugadores($id)
-	{
+        public function editEstadisticasJugadores($id)
+        {
             $partido = Partido::findOrFail($id);
-            $jugadores = Jugador::all();
-
-                return view('jugador_partido.edit_jugadores', compact('partido', 'jugadores'));
-	}
+            return view('jugador_partido.edit_jugadores_estadisticas', compact('partido'));
+        }
 
 	/**
 	 * Update the specified resource in storage.
@@ -67,9 +65,27 @@ class JugadorPartidoController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function updateJugadores(Request $request, $id)
+	public function updateEstadisticasJugadores(Request $request, $id)
         {
-        
+        $partido              = Partido::findOrFail($id);
+        $jugadores            = $partido->jugadores;
+        $data                 = [];
+
+        if (count($jugadores)) {
+            foreach ($jugadores as $jugador) {
+                $inputs = [];
+
+                foreach ($request->all() as $name => $input) {
+                    if (is_array($input)) {
+                        $inputs[$name] = isset($input[$jugador->id]) ? $input[$jugador->id] : 0;
+                    }
+                }
+
+                $data[$jugador->id] = $inputs;
+            }
+        }
+
+        $partido->jugadores()->sync($data);
 
         return redirect()->back()->with('message', 'Cambios guardados');
         }
