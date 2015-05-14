@@ -84,11 +84,12 @@
                         @endforeach
                     </table>
                    
-                   <h2>Estadisticas</h2>
+                   <h2>Estadisticas De Jugadores</h2>
                    <a href="{{ route('partidos.estadisticas', $partidos) }}">Editar Estadisticas de jugadores</a>
                     
                    <table class="table table-striped">
-                        <tr>                            
+                        <tr> 
+                            <th>Nombre</th>
                             <th>Minutos Jugados</th>
                             <th>Goles A Favor</th>
                             <th>Autogol</th>
@@ -96,12 +97,13 @@
                             <th>Tarjetas Rojas</th>
                         </tr>
                         @foreach($partidos->jugadores as $jugador)
-                            <tr>                                                               
-                                <td>{{ $jugador->minutos }}</td>
-                                <td>{{ $jugador->goles_favor }}</td>
-                                <td>{{ $jugador->goles_contra }}</td>
-                                <td>{{ $jugador->tarjetas_amarillas }}</td>
-                                <td>{{ $jugador->tarjetas_rojas}}</td>
+                            <tr> 
+                                <td>{{ $jugador->nombre }} {{ $jugador->apellidos }}</td>
+                                <td>{{ $jugador->pivot->minutos }}</td>
+                                <td>{{ $jugador->pivot->goles_favor }}</td>
+                                <td>{{ $jugador->pivot->goles_contra }}</td>
+                                <td>{{ $jugador->pivot->tarjetas_amarillas }}</td>
+                                <td>{{ $jugador->pivot->tarjetas_rojas}}</td>
                             </tr>
                         @endforeach
                     </table>
