@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'AppController@index');
+Route::get('categorias', 'categoriasController@index');
+
 
 //Route::get('home', 'HomeController@index');
 

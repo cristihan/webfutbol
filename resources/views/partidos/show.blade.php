@@ -11,7 +11,7 @@
             {!! link_to_route('partidos.index', 'Regresar al Index', "", array('class' => 'btn btn-danger')) !!}                                             
                     <table class="table table-striped">
 
-                        <tr>
+                        <tr>                            
                             <th>#</th>
                             <th>Rival</th>
                             <th>Campo</th>
