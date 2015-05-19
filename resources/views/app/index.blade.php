@@ -9,6 +9,10 @@
             @include('app.partials.ultimas_noticias')
 
             @include('app.partials.inscripciones')
+            
+            @include('app.partials.ubicacion')
+            
+            @include('app.partials.actualidad')
 
         </div>
 

@@ -15,7 +15,7 @@ Route::get('/', 'AppController@index');
 Route::get('categorias', 'categoriasController@index');
 
 
-//Route::get('home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
 Route::resource('users', 'UsersController');
 Route::resource('categorias', 'CategoriasController');
@@ -78,7 +78,7 @@ Route::post('partidos/jugadores/{partidos}/estadisticas', [
     'as'    => 'partidos.jugadores.estadisticas.update',
     'uses'  => 'JugadorPartidoController@updateEstadisticasJugadores'
 ]);
-//Route::controllers([
-//	'auth' => 'Auth\AuthController',
-//	'password' => 'Auth\PasswordController',
-//]);
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
