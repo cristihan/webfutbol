@@ -6,8 +6,8 @@
             <li><a href="#">ACTUALIDAD</a></li>
             <li><a href="#">AGENDA</a></li>
             <li><a href="#">COMPETICION</a></li>
-            <li><a href="{{ route('jugadores.create') }}">INSCRIPCIONES</a></li>
-            <li><a href="#">ENTRENADORES</a></li> 
+            <li><a href="{{ route('jugadores.index') }}">INSCRIPCIONES</a></li>
+            <li><a href="{{ route('users.index') }}">ENTRENADORES</a></li> 
             <li><a href="{{ route('partidos.index') }}">PARTIDO</a></li> 
            
         </ul>

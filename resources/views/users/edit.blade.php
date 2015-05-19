@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layout.public')
 
 @section('content')
 <div class="container">
@@ -11,11 +11,12 @@
 
                     {!!Form::model($user, ['route' => ['users.update', $user], 'method' => 'PUT']) !!}
                       @include('users.partials.fields')
-                    <button type="submit" class="btn btn-default">Actualizar Usuario</button>
+                    <button type="submit" class="btn btn-success">Actualizar Usuario</button>
                     {!!Form::close() !!}                  
                     
                 </div>
             </div>
+            <p>{!! link_to_route('users.index', 'Regresar al Index', "", array('class' => 'btn btn-danger')) !!}</p>
             @include('users.partials.delete')
         </div>
     </div>

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layout.public')
 
 @section('content')
 <div class="container">
@@ -26,7 +26,7 @@
                     </table>     
           <h2>Perfil</h2>
           
-                   <a href="{{ route('perfil.edit', [$user->perfil]) }}">editar perfil</a>
+                   <a class="btn btn-success" href="{{ route('perfil.edit', [$user->perfil]) }}">editar perfil</a>
                    
                    <table class="table table-striped">
                         
@@ -55,7 +55,7 @@
                         <h2>Datos de entrenador</h2>
                     
                         @if($user->entrenador)
-                            <a href="{{ route('entrenador.edit', $user->entrenador) }}">
+                            <a class="btn btn-success" href="{{ route('entrenador.edit', $user->entrenador) }}">
                                 Modificar datos de entrenador
                             </a>
 
@@ -70,7 +70,7 @@
                                 </tr>
                             </table>
                         @else
-                            <a href="{{ route('entrenador.create', $user) }}">
+                            <a class="btn btn-success" href="{{ route('entrenador.create', $user) }}">
                                 Agregar datos de entrenador
                             </a>
                         @endif
@@ -80,6 +80,7 @@
                 
                 </div>
             </div>
+          <p>{!! link_to_route('users.index', 'Regresar al Index', "", array('class' => 'btn btn-danger')) !!}</p>   
         </div>
     </div>
 </div>
