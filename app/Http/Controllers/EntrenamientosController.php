@@ -8,6 +8,22 @@ use webfutbol\Entrenamiento;
 
 
 class EntrenamientosController extends Controller {
+    
+    
+    private $campos = [
+            'campo_1'  => 'Campo 1',
+            'campo_2' => 'Campo 2',
+           
+         ];
+     
+     private $dias = [
+            'Lunes'  => 'Lunes',
+            'Martes' => 'Martes',
+            'Miercoles'  => 'Miercoles',
+            'Jueves' => 'Jueves',
+            'Viernes' => 'Viernes',
+           
+         ];
 
 	/**
 	 * Display a listing of the resource.
@@ -28,7 +44,10 @@ class EntrenamientosController extends Controller {
 	 */
 	public function create()
 	{
-            return view('entrenamientos.create');
+            return view('entrenamientos.create', compact('entrenamiento'))->with([              
+              'campos' => $this->campos,
+              'dias'     => $this->dias,
+            ]);
 	}
 
 	/**
@@ -39,7 +58,7 @@ class EntrenamientosController extends Controller {
 	public function store(Request $request)
 	{
             $entrenamiento = Entrenamiento::create($request->all());
-                 return Redirect()->route('entrenamientos.index');
+             return Redirect()->route('entrenamientos.index');
 	}
 
 	/**
@@ -52,7 +71,10 @@ class EntrenamientosController extends Controller {
 	{
             $entrenamiento = Entrenamiento::findOrFail($id);
                 //dd($entrenamiento);
-                return view('entrenamientos.show', compact('entrenamiento'));
+                return view('entrenamientos.show', compact('entrenamiento'))->with([              
+              'campos' => $this->campos,
+              'dias'     => $this->dias,
+            ]);
 	}
 
 	/**
@@ -64,7 +86,10 @@ class EntrenamientosController extends Controller {
 	public function edit($id)
 	{
             $entrenamiento = Entrenamiento::findOrFail($id);//              
-               return view('entrenamientos.edit', compact('entrenamiento'));
+               return view('entrenamientos.edit', compact('entrenamiento'))->with([                
+                'campos' => $this->campos,
+                'dias'     => $this->dias,
+            ]);
 	}
 
 	/**

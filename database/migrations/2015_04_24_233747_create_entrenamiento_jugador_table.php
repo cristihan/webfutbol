@@ -16,7 +16,7 @@ class CreateEntrenamientoJugadorTable extends Migration {
 		{
 			$table->integer('jugador_id')->unsigned(); 
                         $table->integer('entrenamiento_id')->unsigned(); 
-                        $table->integer('asistencia');
+                        $table->enum('asistencia', ['justificada','no_justificada']);
                         $table->enum('motivo', ['lesionado','enfermo', 'estudios','seleccion','vacaciones', 'sin_motivo']); 
                         
                         $table->foreign('jugador_id')

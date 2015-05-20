@@ -11,13 +11,14 @@ class Entrenamiento extends Model {
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['fecha'];
+	protected $fillable = ['fecha','campo','dias'];
         
         
         
         public function jugadores()
     {
-        return $this->belongsToMany('webfutbol\Jugador','entrenamiento_jugador','entrenamiento_id','jugador_id');
+        return $this->belongsToMany('webfutbol\Jugador','entrenamiento_jugador','entrenamiento_id','jugador_id')
+          ->withPivot('asistencia', 'motivo');
     }
 
 }

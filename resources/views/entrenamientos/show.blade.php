@@ -13,11 +13,15 @@
 
                         <tr>
                             <th>#</th>
-                            <th>Fecha De Entrenamiento</th>                          
+                            <th>Fecha De Entrenamiento</th>   
+                            <th>Campo</th> 
+                            <th>Dia Entrenamiento</th>
 
                         </tr>
                        <td>{{$entrenamiento->id }}</td>
-                       <td>{{$entrenamiento->fecha}}</td>                     
+                       <td>{{$entrenamiento->fecha}}</td> 
+                       <td>{{$entrenamiento->campo}}</td>
+                       <td>{{$entrenamiento->dias}}</td>
                                                                     
                         
                     </table>            

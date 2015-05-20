@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
@@ -16,6 +17,8 @@ class CreateEntrenamientosTable extends Migration {
 		{
 			$table->increments('id');                      
                         $table->string('fecha',45);
+                        $table->enum('campo', ['campo_1','campo_2']);
+                        $table->enum('dias', ['Lunes','Martes','Miercoles','Jueves','Viernes']);
 			$table->timestamps();
 		});
 	}

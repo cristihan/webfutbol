@@ -4,7 +4,7 @@
             <li><a href="#">INICIO</a></li>
             <li><a href="{{ route('categorias.create') }}">LA ESCUELA</a></li>
             <li><a href="#">ACTUALIDAD</a></li>
-            <li><a href="#">AGENDA</a></li>
+            <li><a href="{{ route('entrenamientos.index') }}">ENTRENAMIENTO</a></li>
             <li><a href="#">COMPETICION</a></li>
             <li><a href="{{ route('jugadores.index') }}">INSCRIPCIONES</a></li>
             <li><a href="{{ route('users.index') }}">ENTRENADORES</a></li> 

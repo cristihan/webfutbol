@@ -26,7 +26,7 @@
                             <td>{{$partido->goles_en_contra}}</td>
                             <td>{{$partido->tarjetas_amarillas}}</td>
                             <td>{{$partido->tarjetas_rojas}}</td>
-                            <td>{{$partido->categoria_id}}</td>
+                            <td>{{$partido->categoria->nombre}}</td>
                  
                             <td>
                      <a href="{{route('partidos.edit', $partido)}}">Editar</a>

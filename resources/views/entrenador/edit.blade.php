@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layout.public')
 
 @section('content')
     <div class="container">
@@ -12,11 +12,12 @@
 
                         {!!Form::model($entrenador, ['route' => ['entrenador.update', $entrenador], 'method' => 'PUT']) !!}
                         @include('entrenador.partials.fields')
-                        <button type="submit" class="btn btn-default">Guardar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
                         {!!Form::close() !!}
 
                     </div>
                 </div>
+                <p>{!! link_to_route('users.show', 'Regresar', "", array('class' => 'btn btn-danger')) !!}</p>
             </div>
         </div>
     </div>

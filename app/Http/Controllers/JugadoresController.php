@@ -147,5 +147,21 @@ class JugadoresController extends Controller {
         
         return redirect()->route('jugadores.index');
 	}
+        
+        
+    public function editEntrenamiento($id)
+    {
+           $partido = Partido::findOrFail($id);
+           return view('partidos.edit_estadisticas', compact('partido'));
+    }
+    
+    
+    public function updateEntrenamiento(Request $request, $id)
+	{
+            $partido = Partido::findOrFail($id);
+            $partido->fill($request->all());
+            $partido->save();
+            return redirect()->route('partidos.index');
+	}
 
 }
