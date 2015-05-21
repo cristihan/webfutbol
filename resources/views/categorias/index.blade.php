@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layout.public')
 
 @section('content')
 <div class="container">
@@ -13,11 +13,12 @@
                 @endif
 
                 <div class="panel-body">
+               <a class="btn btn-info" href="{{route('categorias.create')}}" role="button">Nueva Categoria</a><br>     
                     <h1>Listado de Equipos por Categorias</h1><br>
                     
-                    <a class="btn btn-info" href="{{route('categorias.create')}}" role="button">Nueva Categoria</a><br>
+                    
                     @include('categorias.partials.table')                    
-                    {!! $categorias->render() !!}
+
                 </div>
             </div>
         </div>

@@ -5,6 +5,9 @@ use webfutbol\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use webfutbol\Entrenamiento;
+use webfutbol\Categoria;
+use webfutbol\Jugador;
+use webfutbol\EntrenamientoJugador;
 
 
 class EntrenamientosController extends Controller {
@@ -24,6 +27,14 @@ class EntrenamientosController extends Controller {
             'Viernes' => 'Viernes',
            
          ];
+     
+        private $categorias;
+       
+       
+       public function __construct()
+        {
+            $this->categorias = Categoria::lists('nombre', 'id');
+        }
 
 	/**
 	 * Display a listing of the resource.
@@ -32,7 +43,7 @@ class EntrenamientosController extends Controller {
 	 */
 	public function index()
 	{
-            $entrenamientos = Entrenamiento::paginate();
+            $entrenamientos = Entrenamiento::paginate(30);
 //                dd($entrenamientos);
                 return view('entrenamientos.index', compact('entrenamientos'));
 	}
@@ -44,7 +55,8 @@ class EntrenamientosController extends Controller {
 	 */
 	public function create()
 	{
-            return view('entrenamientos.create', compact('entrenamiento'))->with([              
+            return view('entrenamientos.create', compact('entrenamiento'))->with([ 
+              'categorias' => $this->categorias,   
               'campos' => $this->campos,
               'dias'     => $this->dias,
             ]);
@@ -58,7 +70,7 @@ class EntrenamientosController extends Controller {
 	public function store(Request $request)
 	{
             $entrenamiento = Entrenamiento::create($request->all());
-             return Redirect()->route('entrenamientos.index');
+             return Redirect()->route('entrenamientos.index', $entrenamiento->categoria_id);
 	}
 
 	/**

@@ -17,7 +17,7 @@ class Partido extends Model {
         
         public function categoria() {
         return $this->belongsTo('webfutbol\Categoria','categoria_id','id');
-    }
+        }
     
      public function jugadores()
     {

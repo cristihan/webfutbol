@@ -13,9 +13,9 @@
                 @endif
 
                 <div class="panel-body">
-                    <h1>Listado de Entrenamientos</h1><br>
-                    
-                    <a class="btn btn-info" href="{{route('entrenamientos.create')}}" role="button">Nueva Entrenamiento</a><br>
+                <a class="btn btn-info" href="{{route('entrenamientos.create')}}" role="button">Nueva Entrenamiento</a><br>     
+                    <h1>Listado de Entrenamientos</h1><br>                    
+                   
                     @include('entrenamientos.partials.table')                    
                     {!! $entrenamientos->render() !!}
                 </div>

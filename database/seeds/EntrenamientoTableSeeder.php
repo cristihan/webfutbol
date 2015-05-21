@@ -15,6 +15,7 @@ class EntrenamientoTableSeeder extends Seeder
                 'fecha'      => $faker->dateTime('2015-04-25 08:37:17'),
                 'campo'      => $faker->randomElement(['campo_1','campo_2']),
                 'dias'       => $faker->randomElement(['Lunes','Martes','Miercoles','Jueves','Viernes']),
+                'categoria_id'      => 1,
             ]);
         }
     }

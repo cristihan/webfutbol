@@ -1,8 +1,8 @@
 <nav class="nav">
     <div class="content">
         <ul>
-            <li><a href="#">INICIO</a></li>
-            <li><a href="{{ route('categorias.create') }}">LA ESCUELA</a></li>
+            <li><a href="{{ route('app.index') }}">INICIO</a></li>
+            <li><a href="{{ route('categorias.index') }}">LA ESCUELA</a></li>
             <li><a href="#">ACTUALIDAD</a></li>
             <li><a href="{{ route('entrenamientos.index') }}">ENTRENAMIENTO</a></li>
             <li><a href="#">COMPETICION</a></li>

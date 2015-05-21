@@ -5,17 +5,18 @@
         <th>Fecha</th>    
         <th>Campo</th> 
         <th>Dia Entrenamiento</th>
+        <th>Categoria</th>
         <th>Acciones</th> 
 
     </tr>
     @foreach($entrenamientos as $entrenamiento)
        <tr data-id="{{$entrenamiento->id}}">
         <td>{{$entrenamiento->id}}</td>
-        <td>{{$entrenamiento->fecha}}</td>
+        <td>{{date('d-m-Y', time($entrenamiento->fecha))}}</td>
         <td>{{$entrenamiento->campo}}</td>
         <td>{{$entrenamiento->dias}}</td>
-
-
+         <td>{{$entrenamiento->categoria->nombre}}</td>      
+        
         <td>
             <a href="{{route('entrenamientos.edit', $entrenamiento)}}">Editar</a>
             <a href="" class="btn-delete">Eliminar</a>

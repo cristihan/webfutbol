@@ -25,6 +25,10 @@ class Categoria extends Model {
     
      public function jugador() {
         return $this->hasMany('webfutbol\Jugador','categoria_id','id');
-    }   
+    }  
+    
+    public function entrenamiento() {
+       return $this->hasMany('webfutbol\Entrenamiento','categoria_id','id');
+   }
     
 }

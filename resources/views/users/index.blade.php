@@ -16,7 +16,6 @@
                     <a class="btn btn-info" href="{{route('users.create')}}" role="button">Nuevo Usuario</a> 
                     
                    <p>Hay {{ $users->total()}} Usuarios</p>
-
                      @include('users.partials.table')
                      {!! $users->render() !!}
                 </div>

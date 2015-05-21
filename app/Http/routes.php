@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'AppController@index');
+//Route::get('/', 'AppController@index
+Route::get('/', ['as' => 'app.index', 'uses'=>'AppController@index']);
 Route::get('categorias', 'categoriasController@index');
 
 
@@ -79,14 +80,6 @@ Route::post('partidos/jugadores/{partidos}/estadisticas', [
     'uses'  => 'JugadorPartidoController@updateEstadisticasJugadores'
 ]);
 
-Route::get('jugadores/edit/jugadores/{jugadores}', [
-    'as'   => 'partidos.edit.estadisticas',
-    'uses' => 'JugadoresController@editEntrenamientos',
-]);
-Route::put('partidos/edit/jugadores/{jugadores}', [
-   'as'   => 'partidos.update.estadisticas',
-   'uses' => 'JugadoresController@updateEntrenamientos',
-]);
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
