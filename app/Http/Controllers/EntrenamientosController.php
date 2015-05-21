@@ -98,7 +98,8 @@ class EntrenamientosController extends Controller {
 	public function edit($id)
 	{
             $entrenamiento = Entrenamiento::findOrFail($id);//              
-               return view('entrenamientos.edit', compact('entrenamiento'))->with([                
+               return view('entrenamientos.edit', compact('entrenamiento'))->with([ 
+                'categorias' => $this->categorias,   
                 'campos' => $this->campos,
                 'dias'     => $this->dias,
             ]);

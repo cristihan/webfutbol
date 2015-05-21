@@ -80,8 +80,18 @@ Route::post('partidos/jugadores/{partidos}/estadisticas', [
     'uses'  => 'JugadorPartidoController@updateEstadisticasJugadores'
 ]);
 
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+Route::get('entrenamientos/{entrenamientos}/asistencia', [
+    'as'    => 'entrenamientos.asistencia',
+    'uses'  => 'EntrenamientoJugadorController@edit'
 ]);
+
+Route::post('entrenamientos/{entrenamientos}/asistencia', [
+    'as'    => 'entrenamientos.asistencia.update',
+    'uses'  => 'EntrenamientoJugadorController@update'
+]);
+
+
+//Route::controllers([
+//	'auth' => 'Auth\AuthController',
+//	'password' => 'Auth\PasswordController',
+//]);

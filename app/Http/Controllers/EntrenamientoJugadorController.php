@@ -3,50 +3,15 @@
 use webfutbol\Http\Requests;
 use webfutbol\Http\Controllers\Controller;
 
+use webfutbol\Jugador;
+use webfutbol\Entrenamiento;
+use webfutbol\EntrenamientoJugador;
+
 use Illuminate\Http\Request;
 
 class EntrenamientoJugadorController extends Controller {
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+	
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -56,7 +21,10 @@ class EntrenamientoJugadorController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+            $entrenamiento = Entrenamiento::findOrFail($id);
+            $jugadores = Jugador::all();
+
+                return view('entrenamiento_jugador.edit', compact('entrenamiento', 'jugadores'));
 	}
 
 	/**
