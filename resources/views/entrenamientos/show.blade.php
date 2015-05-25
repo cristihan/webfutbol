@@ -16,18 +16,47 @@
                             <th>Fecha De Entrenamiento</th>   
                             <th>Campo</th> 
                             <th>Dia Entrenamiento</th>
-
+                            <th>Categoria</th>
                         </tr>
-                       <td>{{$entrenamiento->id }}</td>
-                       <td>{{$entrenamiento->fecha}}</td> 
-                       <td>{{$entrenamiento->campo}}</td>
-                       <td>{{$entrenamiento->dias}}</td>
-                                                                    
                         
-                    </table>            
+                        <tr>
+                       <td>{{$entrenamientos->id }}</td>
+                       <td>{{$entrenamientos->fecha}}</td> 
+                       <td>{{$entrenamientos->campo}}</td>
+                       <td>{{$entrenamientos->dias}}</td>
+                       <td>{{$entrenamientos->categoria->nombre}}</td> 
+                       </tr>                                             
+                        
+                    </table> 
+                    
+                    <h2>Asistencia</h2>
+                   <a href="{{ route('entrenamientos.asistencia', $entrenamientos) }}">Editar Asistencia de jugadores</a>
+                    
+                   <table class="table table-striped">
+                        <tr>
+                            <th>Asistido</th>
+                            <th>dni</th>
+                            <th>Nombre</th>
+                            <th>Justificacion Asistencia</th>
+                            <th>Motivo</th>
+                            <th>Categoria</th>
+                        </tr>
+                        @foreach($entrenamientos->jugadores as $jugador)
+                             <tr> 
+                                <td>{{$jugador->pivot->asistido}}</td>
+                                
+                                <td>{{ $jugador->dni }} </td>
+                                <td>{{ $jugador->nombre }} {{ $jugador->apellidos }}</td>
+                                <td>{{ $jugador->pivot->asistencia }}</td>
+                                <td>{{ $jugador->pivot->motivo }}</td>
+                                <td>{{ $jugador->categoria->nombre }}</td>
+                               
+                            </tr>
+                            @endforeach
+                    </table>
                 </div>
             </div>
-             <a href="{{ route('entrenamientos.index', $entrenamiento)}}">Volver</a>
+             <a href="{{ route('entrenamientos.index', $entrenamientos)}}">Volver</a>
         </div>
     </div>
 </div>

@@ -102,13 +102,13 @@ class UsersController extends Controller {
 //             dd("eliminando: ". $id);
 	$user = User::findOrFail($id);
         
-        $user->delete();
-        
+        $user->delete();       
+             
         $message = $user->name . 'fue eliminado de nuestros registros';
         
          if ($request->ajax()){
             return response()->json([
-                'id' => $this->user->id,
+                'id' => $user->id,
                 'message' =>  $message,
             ]);
           

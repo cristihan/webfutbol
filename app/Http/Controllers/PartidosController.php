@@ -112,7 +112,7 @@ class PartidosController extends Controller {
                if ($request->ajax())
                {
                 return response()->json([
-                'id' => $this->partido->id,
+                'id' => $partido->id,
                 'message' =>  $message,
             ]);
           

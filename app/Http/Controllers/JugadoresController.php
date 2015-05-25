@@ -137,7 +137,7 @@ class JugadoresController extends Controller {
                if ($request->ajax())
                {
                 return response()->json([
-                'id' => $this->jugador->id,
+                'id' => $jugador->id,
                 'message' =>  $message,
             ]);
           

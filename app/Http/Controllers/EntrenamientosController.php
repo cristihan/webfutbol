@@ -81,9 +81,9 @@ class EntrenamientosController extends Controller {
 	 */
 	public function show($id)
 	{
-            $entrenamiento = Entrenamiento::findOrFail($id);
+            $entrenamientos = Entrenamiento::findOrFail($id);
                 //dd($entrenamiento);
-                return view('entrenamientos.show', compact('entrenamiento'))->with([              
+                return view('entrenamientos.show', compact('entrenamientos'))->with([              
               'campos' => $this->campos,
               'dias'     => $this->dias,
             ]);
@@ -135,7 +135,7 @@ class EntrenamientosController extends Controller {
         
             if ($request->ajax()){
             return response()->json([
-                'id' => $this->entrenamiento->id,
+                'id' => $entrenamiento->id,
                 'message' =>  $message,
             ]);
           

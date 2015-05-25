@@ -49,14 +49,20 @@
                             <th>Motivo</th>
                             <th>Categoria</th>
                             </tr>
-                            
+                            @foreach($entrenamientos->jugadores as $jugador)
                                 <tr>
-                                  
+<!--                                <td>{!! Form::checkbox('jugador_id[]', $jugador->id, $partido->convocado($jugador->id)) !!}</td>
+                                <td>{!! Form::checkbox('titular[]', $jugador->id, $partido->titular($jugador->id)) !!}</td>-->
+                                <td>{{ $jugador->dni }} </td>
+                                <td>{{ $jugador->nombre }} {{ $jugador->apellidos }}</td>
+                                <td>{{ $jugador->pivot->asistencia }}</td>
+                                <td>{{ $jugador->pivot->motivo }}</td>
+                                <td>{{ $jugador->categoria->nombre }}</td>
                                 </tr>
-                           
-                        </table>
+                            @endforeach                               
+                           </table>
 
-                        {!! Form::submit('Guardar convocados') !!}
+                        {!! Form::submit('Guardar Asistencia') !!}
 
                         {!! Form::close() !!}
                     </div>

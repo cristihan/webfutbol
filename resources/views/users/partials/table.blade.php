@@ -17,7 +17,7 @@
                             <td>
                      <a class="btn btn-primary" href="{{route('users.edit', $user)}}">Editar</a>
                      <a href="" class="btn btn-danger">Eliminar</a>                             
-                     <a class="btn btn-warning" href="{{route('users.show', $user)}}" role="button">Mostrar</a>            
+                     <a class="btn btn-warning" href="{{route('users.show', $user)}}">Mostrar</a>            
                             </td>
                         </tr>
                         @endforeach
