@@ -5,7 +5,7 @@
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Webfutbol</title>
+    <title>Webfutbol</title>    
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
 </head>
@@ -15,15 +15,15 @@
 
 @include('layout.partials.nav')
 
-@yield('content')
+@yield('content')   
 
- @yield('scripts')       
+ @include('layout.partials.footer') 
 
         <!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-      
- @include('layout.partials.footer')       
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>      
+        
+         @yield('scripts')         
 
 </body>
 </html>

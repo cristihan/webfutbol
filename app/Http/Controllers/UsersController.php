@@ -99,20 +99,21 @@ class UsersController extends Controller {
 	 */
 	public function destroy(Request $request,$id)
 	{
-//             dd("eliminando: ". $id);
+
 	$user = User::findOrFail($id);
         
         $user->delete();       
              
-        $message = $user->name . 'fue eliminado de nuestros registros';
+        $message = $user->email . 'fue eliminado de nuestros registros';
         
-         if ($request->ajax()){
-            return response()->json([
+        if ($request->ajax())
+        {
+                return response()->json([
                 'id' => $user->id,
                 'message' =>  $message,
             ]);
           
-        }        
+         }       
 
        Session::flash('message', $message);
         

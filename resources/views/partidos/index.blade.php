@@ -43,7 +43,7 @@
             $.post(url, data, function(result) {
                 alert(result.message);
             }).fail(function() {
-                alert('El usuario no fue eliminado');
+                alert('Los datos del partido no fue eliminado');
                 row.show();
             });
         });
