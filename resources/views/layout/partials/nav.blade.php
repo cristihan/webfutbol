@@ -9,6 +9,7 @@
             <li><a href="{{ route('jugadores.index') }}">INSCRIPCIONES</a></li>
             <li><a href="{{ route('users.index') }}">ENTRENADORES</a></li> 
             <li><a href="{{ route('partidos.index') }}">PARTIDO</a></li> 
+             <li><a href="">ESTADISTICAS</a></li> 
            
         </ul>
     </div>

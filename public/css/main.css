@@ -17,6 +17,15 @@
     margin: 6px 12px 0;
     width: 60px;
 }
+
+.header a {
+    float: right;
+    height: auto;
+    margin: 6px 12px 0;
+    width: 60px;
+}
+
+
 .header h1 {
     color: #fff;
     margin: 0;
@@ -29,7 +38,8 @@
 .nav {
     background: #44bc6e;
     margin-bottom: 6px;
-    padding: 6px;
+    padding: 10px;
+    
 }
 .nav ul {
     list-style: none;
