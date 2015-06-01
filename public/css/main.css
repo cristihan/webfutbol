@@ -20,9 +20,9 @@
 
 .header a {
     float: right;
-    height: auto;
-    margin: 6px 12px 0;
-    width: 60px;
+    height: 1px;
+    margin: 1px 12px 2px 5px;
+    width: 50px;
 }
 
 
@@ -116,7 +116,13 @@
     position: absolute;
     text-align: center;
     top: 0;
-    width: 100%;
+    width: 100%;   
+}
+
+.noticias_inicio a,
+.inscripciones_inicio a
+{
+    color:white;
 }
 
 .noticias_inicio .contenido,

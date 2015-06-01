@@ -2,16 +2,16 @@
 
                         <tr>
                             <th>#</th>
-                            <th>Rival</th>
-                            <th>Campo</th>
-                            <th>Estado</th>
-                            <th>Fecha</th>
-                            <th>Jornada</th>
-                            <th>Goles_Favor</th>
-                            <th>Goles_contra</th>
-                            <th>Tarjetas Amarillas</th>
-                            <th>Tarjetas_rojas</th>                           
-                            <th>Categoria</th> 
+                            <th>{{ trans('validation.attributes.rival') }}</th>
+                            <th>{{ trans('validation.attributes.campo') }}</th>
+                            <th>{{ trans('validation.attributes.estado') }}</th>
+                            <th>{{ trans('validation.attributes.fecha') }}</th>
+                            <th>{{ trans('validation.attributes.jornada') }}</th> 
+                            <th>{{ trans('validation.attributes.goles_favor') }}</th>
+                            <th>{{ trans('validation.attributes.goles_contra') }}</th>
+                            <th>{{ trans('validation.attributes.tarjeta_amarilla') }}</th>
+                            <th>{{ trans('validation.attributes.tarjeta_roja') }}</th>                           
+                            <th>{{ trans('validation.attributes.categoria') }}</th> 
 
                         </tr>
                         @foreach($partidos as $partido)
@@ -29,9 +29,9 @@
                             <td>{{$partido->categoria->nombre}}</td>
                  
                             <td>
-                     <a href="{{route('partidos.edit', $partido)}}">Editar</a>
-                     <a href="" class="btn-delete">Eliminar</a>                             
-                     <a class="" href="{{route('partidos.show', $partido)}}" role="button">Mostrar</a>            
+                     <a href="{{route('partidos.edit', $partido)}}">{{ trans('validation.attributes.editar') }}</a>
+                     <a href="" class="btn-delete">{{ trans('validation.attributes.eliminar') }}</a>                             
+                     <a class="" href="{{route('partidos.show', $partido)}}" role="button">{{ trans('validation.attributes.mostrar') }}</a>            
                             </td>
                         </tr>
                         @endforeach

@@ -1,7 +1,7 @@
 
     @if($errors->any())
     <div class="alert alert-danger" role="alert">
-    <p>Por Favor Corrige los errores</p>
+    <p>{{ trans('validation.attributes.errores') }}</p>
     <ul>
         @foreach($errors->all() as $error)
 

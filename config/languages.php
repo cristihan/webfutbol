@@ -1,6 +1,6 @@
 <?php
-return [
-   'es' => 'Español',
+return [ 
+   'es' => 'Español', 
    'en' => 'English',
    'ca' => 'Catalan',
 ];

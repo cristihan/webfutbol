@@ -3,5 +3,5 @@ necesitamos hacer un formulario y lo tenemos en la clase edit.blade.php
 1 parametro es la rura destroy
 2 parametro el metodo DELETE-->
 {!!Form::open(['route' => ['users.destroy', $user], 'method' => 'DELETE']) !!}
-<button type="submit"  onclick="return confirm('Seguro que desea Eliminar?')"class="btn btn-danger">Eliminar Usuario</button>
+<button type="submit"  onclick="return confirm('Seguro que desea Eliminar?')"class="btn btn-danger">{{ trans('validation.attributes.eliminar_usuario') }} </button>
 {!!Form::close() !!}

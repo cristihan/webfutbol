@@ -17,7 +17,10 @@ Route::get('categorias', 'categoriasController@index');
 
 
 Route::get('home', 'HomeController@index');
-Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+Route::get('lang/{lang}', [
+    'as'=>'lang.switch',
+    'uses'=>'LanguageController@switchLang',
+    ]);
 
 Route::resource('users', 'UsersController');
 Route::resource('categorias', 'CategoriasController');

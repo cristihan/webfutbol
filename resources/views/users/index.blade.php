@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Usuarios</div>
+                <div class="panel-heading">{{ trans('validation.attributes.usuarios') }}</div>
                 
                  @if (Session::has('message'))
 
@@ -13,9 +13,9 @@
                 @endif
 
                 <div class="panel-body">
-                    <a class="btn btn-info" href="{{route('users.create')}}" role="button">Nuevo Usuario</a> 
+                    <a class="btn btn-info" href="{{route('users.create')}}" role="button">{{ trans('validation.attributes.nuevo_usuario') }}</a> 
                     
-                   <p>Hay {{ $users->total()}} Usuarios</p>
+                   <p>Hay {{ $users->total()}} {{ trans('validation.attributes.usuarios') }}</p>
                      @include('users.partials.table')
                      {!! $users->render() !!}
                 </div>

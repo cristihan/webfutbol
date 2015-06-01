@@ -2,9 +2,9 @@
 
     <tr>
         <th>#</th>                           
-        <th>Email</th>
-        <th>Tipo</th>
-        <th>Acciones</th>
+        <th>{{ trans('validation.attributes.email') }}</th>  
+        <th>{{ trans('validation.attributes.tipo') }}</th>
+        <th>{{ trans('validation.attributes.acciones') }}</th>
 
 
     </tr>
@@ -15,9 +15,9 @@
         <td>{{$user->type}}</td>
 
         <td>
-            <a class="btn btn-primary" href="{{route('users.edit', $user)}}">Editar</a>
-            <a href="" class="btn btn-danger">Eliminar</a>                             
-            <a class="btn btn-warning" href="{{route('users.show', $user)}}" role="button">Mostrar</a>            
+            <a class="btn btn-primary" href="{{route('users.edit', $user)}}">{{ trans('validation.attributes.editar') }}</a>
+            <a href="" class="btn btn-danger">{{ trans('validation.attributes.eliminar') }}</a>                             
+            <a class="btn btn-warning" href="{{route('users.show', $user)}}" role="button">{{ trans('validation.attributes.mostrar') }}</a>            
         </td>
     </tr>
     @endforeach

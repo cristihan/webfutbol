@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Mostrar Partidos</div>               
+                <div class="panel-heading">{{ trans('validation.attributes.mostrar_partido') }}</div>               
                 
                 @if (Session::has('message'))
 
@@ -13,8 +13,8 @@
                 @endif                 
                 
                 <div class="panel-body">
-                <a class="btn btn-info" href="{{route('partidos.create')}}" role="button">Nuevo Partido</a><br>    
-                    <h1>Listado de Partidos</h1><br>                    
+                <a class="btn btn-info" href="{{route('partidos.create')}}" role="button">{{ trans('validation.attributes.nuevo_partido') }}</a><br>    
+                    <h1>{{ trans('validation.attributes.listado_partido') }}</h1><br>                    
                    
                     @include('partidos.partials.table')                    
                       {!! $partidos->render() !!}

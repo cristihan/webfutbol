@@ -1,15 +1,14 @@
 <nav class="nav">
     <div class="content">
         <ul>
-            <li><a href="{{ route('app.index') }}">INICIO</a></li>
-            <li><a href="{{ route('categorias.index') }}">LA ESCUELA</a></li>
-            <li><a href="#">ACTUALIDAD</a></li>
-            <li><a href="{{ route('entrenamientos.index') }}">ENTRENAMIENTO</a></li>
-            <li><a href="#">COMPETICION</a></li>
-            <li><a href="{{ route('jugadores.index') }}">INSCRIPCIONES</a></li>
-            <li><a href="{{ route('users.index') }}">ENTRENADORES</a></li> 
-            <li><a href="{{ route('partidos.index') }}">PARTIDO</a></li> 
-             <li><a href="">ESTADISTICAS</a></li> 
+            <li><a href="{{ route('app.index') }}">{{ trans('validation.attributes.inicio') }}</a></li>
+            <li><a href="{{ route('jugadores.create') }}">{{ trans('validation.attributes.inscripcion_escuela') }}</a></li>
+            <li><a href="{{ route('categorias.index') }}">{{ trans('validation.attributes.categorias') }}</a></li>
+            <li><a href="{{ route('entrenamientos.index') }}">{{ trans('validation.attributes.entrenamiento') }}</a></li>
+            <li><a href="#">{{ trans('validation.attributes.competicion') }}</a></li>            
+            <li><a href="{{ route('users.index') }}">{{ trans('validation.attributes.entrenadores') }}</a></li> 
+            <li><a href="{{ route('partidos.index') }}">{{ trans('validation.attributes.partidos') }}</a></li> 
+             <li><a href="#">{{ trans('validation.attributes.estadisticas') }}</a></li> 
            
         </ul>
     </div>

@@ -1,11 +1,11 @@
-@extends('app')
+@extends('layout.public')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Mostrar Datos del Partido</div>               
+                <div class="panel-heading">{{ trans('validation.attributes.mostrar_partido') }}</div>               
                   
                 <div class="panel-body">               
             {!! link_to_route('partidos.index', 'Regresar al Index', "", array('class' => 'btn btn-danger')) !!}                                             
@@ -13,12 +13,12 @@
 
                         <tr>                            
                             <th>#</th>
-                            <th>Rival</th>
-                            <th>Campo</th>
-                            <th>Estado</th>
-                            <th>Fecha</th>
-                            <th>Jornada</th>                                                     
-                            <th>Categoria</th> 
+                            <th>{{ trans('validation.attributes.rival') }}</th>
+                            <th>{{ trans('validation.attributes.campo') }}</th>
+                            <th>{{ trans('validation.attributes.estado') }}</th>
+                            <th>{{ trans('validation.attributes.fecha') }}</th>
+                            <th>{{ trans('validation.attributes.jornada') }}</th>                                                     
+                            <th>{{ trans('validation.attributes.categoria') }}</th> 
 
                         </tr>
                       
@@ -33,18 +33,18 @@
                                                                                             
                     </table>  
                     
-                    <h2>Editar Estadisticas</h2>
+                    <h2>{{ trans('validation.attributes.editar_estadisticas') }}</h2>
           
-                   <a href="{{ route('partidos.edit.estadisticas', $partidos)}}">editar Estadisticas</a>
+                   <a href="{{ route('partidos.edit.estadisticas', $partidos)}}">{{ trans('validation.attributes.editar_estadisticas') }}</a>
                    
                    <table class="table table-striped">
                         
                         
                         <tr>
-                            <th>Goles_Favor</th>
-                            <th>Goles_contra</th>
-                            <th>Tarjetas Amarillas</th>
-                            <th>Tarjetas_rojas</th> 
+                            <th>{{ trans('validation.attributes.goles_favor') }}</th>
+                            <th>{{ trans('validation.attributes.goles_contra') }}</th>
+                            <th>{{ trans('validation.attributes.tarjeta_amarilla') }}</th>
+                            <th>{{ trans('validation.attributes.tarjeta_roja') }}</th> 
 
                         </tr>
                             <td>{{$partidos->goles_a_favor}}</td>
@@ -53,17 +53,17 @@
                             <td>{{$partidos->tarjetas_rojas}}</td>
                    </table> 
                    
-                   <h2>Convocados</h2>
-                   <a href="{{ route('partidos.convocar', $partidos) }}">Editar convocatoria de jugadores</a>
+                   <h2>{{ trans('validation.attributes.convocado') }}</h2>
+                   <a href="{{ route('partidos.convocar', $partidos) }}">{{ trans('validation.attributes.convocatoria') }}</a>
                     
                    <table class="table table-striped">
                         <tr>
-                            <th>Titular</th>
-                            <th>dni</th>
-                            <th>Nombre</th>
-                            <th>Habilidad</th>
-                            <th>Posicion</th>
-                            <th>Categoria</th>
+                            <th>{{ trans('validation.attributes.titular') }}</th>
+                            <th>{{ trans('validation.attributes.dni') }}</th>
+                            <th>{{ trans('validation.attributes.nombre') }}</th>
+                            <th>{{ trans('validation.attributes.habilidad') }}</th>
+                            <th>{{ trans('validation.attributes.posicion') }}</th>
+                            <th>{{ trans('validation.attributes.categoria') }}</th>
                         </tr>
                         @foreach($partidos->jugadores as $jugador)
                             <tr>
@@ -83,18 +83,18 @@
                         @endforeach
                     </table>
                    
-                   <h2>Estadisticas De Jugadores</h2>
-                   <a href="{{ route('partidos.jugadores.estadisticas', $partidos) }}">Editar Estadisticas de jugadores</a>
+                   <h2>{{ trans('validation.attributes.estadistica_jugador') }}</h2>
+                   <a href="{{ route('partidos.jugadores.estadisticas', $partidos) }}">{{ trans('validation.attributes.editar_estadistica_jugador') }}</a>
                     
                    <table class="table table-striped">
                         <tr> 
-                            <th>Dni</th>
-                            <th>Nombre</th>
-                            <th>Minutos Jugados</th>
-                            <th>Goles A Favor</th>
-                            <th>Autogol</th>
-                            <th>Tarjetas Amarillas</th>
-                            <th>Tarjetas Rojas</th>
+                            <th>{{ trans('validation.attributes.dni') }}</th>
+                            <th>{{ trans('validation.attributes.nombre') }}</th>
+                            <th>{{ trans('validation.attributes.minuto_jugado') }}</th>
+                            <th>{{ trans('validation.attributes.goles_favor') }}</th>
+                            <th>{{ trans('validation.attributes.autogol') }}</th>
+                            <th>{{ trans('validation.attributes.tarjeta_amarilla') }}</th>
+                            <th>{{ trans('validation.attributes.tarjeta_roja') }}</th> 
                         </tr>
                         @foreach($partidos->jugadores as $jugador)
                             <tr> 

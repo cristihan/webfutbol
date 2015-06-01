@@ -25,6 +25,11 @@ class Partido extends Model {
             ->withPivot('titular', 'minutos', 'goles_favor', 'goles_contra', 'tarjetas_amarillas', 'tarjetas_rojas');
     }
     
+    /**
+     * funcion que hacer referencia al metodo dentro de la misma clase
+     * @param type $id
+     * @return type
+     */
     public function convocado($id)
     {
 //        dd($id);
@@ -32,7 +37,11 @@ class Partido extends Model {
         return !is_null($jugador);
     }
 
-    
+    /**
+     * utilizamos un ciclo para traemos a todos lo jugadores relacionados
+     * @param type $id
+     * @return boolean
+     */
     public function titular($id)
     {
         foreach ($this->jugadores as $jugador) {

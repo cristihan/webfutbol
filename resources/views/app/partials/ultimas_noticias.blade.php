@@ -1,13 +1,13 @@
 <section class="noticias_inicio">
 
     <h1>
-        ÚLTIMAS NOTICIAS
+        <a href="#">{{ trans('validation.attributes.noticias') }}</a>          
     </h1>
     
     <div class="contenido">
         <ul>
-            <li>Partido contra Logroño, Alvines a favor 2-1</li>
-            <li>Entrega de premios categoria junio</li>
+            <li>{{ trans('validation.attributes.noticia_1') }}</li>
+            <li>{{ trans('validation.attributes.noticia_2') }}</li>
         </ul>
     </div>
 

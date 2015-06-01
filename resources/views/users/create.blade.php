@@ -14,7 +14,7 @@
 
                     {!!Form::open(['route' => 'users.store', 'method' => 'POST']) !!}
                     @include('users.partials.fields')
-                    <button type="submit" class="btn btn-success">Crear Usuario</button>
+                    <button type="submit" class="btn btn-success">{{ trans('validation.attributes.guardar') }}</button>
                     {!!Form::close() !!}
 
                 </div>

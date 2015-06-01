@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Mostrar Usuarios</div>               
+                <div class="panel-heading">{{ trans('validation.attributes.mostrar_usuarios') }}</div>               
 
                 <div class="panel-body">                  
                     
@@ -13,9 +13,9 @@
                         
                         <tr>
                             <th>#</th>
-                            <th>Nombre</th> 
-                             <th>Email</th>  
-                              <th>Tipo</th>  
+                            <th>{{ trans('validation.attributes.nombre') }}</th> 
+                            <th>{{ trans('validation.attributes.email') }}</th>  
+                            <th>{{ trans('validation.attributes.tipo') }}</th>  
 
                         </tr>
                             <td>{{$user->id }}</td>
@@ -24,21 +24,21 @@
                             <td>{{$user->type}}</td>
                             
                     </table>     
-          <h2>Perfil</h2>
+          <h2>{{ trans('validation.attributes.perfil') }}</h2>
           
-                   <a class="btn btn-success" href="{{ route('perfil.edit', [$user->perfil]) }}">editar perfil</a>
+                   <a class="btn btn-success" href="{{ route('perfil.edit', [$user->perfil]) }}">{{ trans('validation.attributes.editar_perfil') }}</a>
                    
                    <table class="table table-striped">
                         
                         
                         <tr>
                             <th>#</th>
-                            <th>Nombre</th> 
-                             <th>Apellidos</th>  
-                             <th>Telefono</th>
-                             <th>Direccion</th> 
-                             <th>CP</th> 
-                             <th>Localidad</th> 
+                            <th>{{ trans('validation.attributes.nombre') }}</th> 
+                            <th>{{ trans('validation.attributes.apellidos') }}</th>  
+                            <th>{{ trans('validation.attributes.telefono') }}</th>
+                            <th>{{ trans('validation.attributes.direccion') }}</th> 
+                            <th>{{ trans('validation.attributes.cp') }}</th> 
+                            <th>{{ trans('validation.attributes.localidad') }}</th> 
 
                         </tr>
                             <td>{{$user->perfil->id }}</td>
@@ -52,17 +52,17 @@
                    
                    
                    @if($user->type == 'entrenador')
-                        <h2>Datos de entrenador</h2>
+                        <h2>{{ trans('validation.attributes.datos_entrenador') }}</h2>
                     
                         @if($user->entrenador)
                             <a class="btn btn-success" href="{{ route('entrenador.edit', $user->entrenador) }}">
-                                Modificar datos de entrenador
+                                {{ trans('validation.attributes.modificar_entrenador') }}
                             </a>
 
                             <table class="table table-striped">
                                 <tr>
-                                    <th>Cargo</th>
-                                    <th>Categoria</th>
+                                    <th>{{ trans('validation.attributes.cargo') }}</th>
+                                    <th>{{ trans('validation.attributes.categoria') }}</th>
                                 </tr>
                                 <tr>
                                     <td>{{ $user->entrenador->cargo }}</td>
@@ -71,7 +71,7 @@
                             </table>
                         @else
                             <a class="btn btn-success" href="{{ route('entrenador.create', $user) }}">
-                                Agregar datos de entrenador
+                                {{ trans('validation.attributes.agregar_entrenador') }}
                             </a>
                         @endif
                     @endif

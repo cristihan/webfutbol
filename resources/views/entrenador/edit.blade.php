@@ -5,14 +5,14 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Datos de entrenador</div>
+                    <div class="panel-heading">{{ trans('validation.attributes.datos_entrenador') }}</div>
 
                     <div class="panel-body">
 
 
                         {!!Form::model($entrenador, ['route' => ['entrenador.update', $entrenador], 'method' => 'PUT']) !!}
                         @include('entrenador.partials.fields')
-                        <button type="submit" class="btn btn-success">Guardar</button>
+                        <button type="submit" class="btn btn-success">{{ trans('validation.attributes.guardar') }}</button>
                         {!!Form::close() !!}
 
                     </div>
